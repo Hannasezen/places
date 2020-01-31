@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My places</title>
+</head>
+<body>
+  <header></header>
+  <main id="main" class="main-content">
+    <div class="map">
+      <img src="./src/images/loader.gif" alt="Google Map" id="map-image" width="600" height="300"> 
+    </div>
+    <div>
+      <button id="add-place-btn">Add Place</button>
+      <ul id="place-list"></ul>
+      <form class="hidden" id="add-place-form">
+        <label>Title: 
+          <input type="text" name="place-title" id="new-place-title" placeholder="title">
+        </label>
+        <label>Description: 
+          <input type="text" name="place-description" id="new-place-description" placeholder="description">
+        </label>
+        <label>Is open: 
+          <input type="time" name="place-openhours" id="new-place-openhours">
+        </label>
+        <label>Latitude: 
+          <input type="text" name="place-ltd" id="new-place-ltd" placeholder="latitude">
+        </label>
+        <label>Longitude: 
+          <input type="text" name="place-lgt" id="new-place-lgt" placeholder="longitude">
+        </label>
+        <button id="save-place-btn">Save</button>
+      </form>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script async src="./dist/build.js"></script>
+</body>
+</html>

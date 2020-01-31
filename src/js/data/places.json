@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Home",
+    "description": "Home",
+    "color": "red",
+    "label": "A",
+    "coordinates": {
+      "ltd": "50.005083",
+      "lgt": "36.190229"
+    },
+    "open": "9-00",
+    "keywords": []
+  },
+  {
+    "title": "Epam",
+    "description": "Work",
+    "color": "blue",
+    "label": "E",
+    "coordinates": {
+      "ltd": "50.037139",
+      "lgt": "36.218084"
+    },
+    "open": "10-00",
+    "keywords": []
+  },
+  {
+    "title": "Jelya",
+    "description": "Sister",
+    "color": "green",
+    "label": "J",
+    "coordinates": {
+      "ltd": "50.025086",
+      "lgt": "36.217503"
+    },
+    "open": "08-00",
+    "keywords": []
+  }
+]

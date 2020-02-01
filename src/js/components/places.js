@@ -64,7 +64,7 @@ export class Places {
       this.places.splice(index, 1);
       li.remove();
     }    
-    eventBus.publish('removed_place', id);
+    eventBus.publish('removed_place');
   }
 
   renderPlaceList(places = this.places) {

@@ -14,6 +14,7 @@
     </div>
     <div>
       <button id="add-place-btn">Add Place</button>
+      <button id="filter-open-places">Open places</button>
       <ul id="place-list"></ul>
       <form class="form hidden" id="form">
         <label>Title: 
@@ -32,12 +33,21 @@
             placeholder="Type a description"
           >
         </label>
-        <label>Is open: 
+        <label>Opens: 
           <input
             type="time"
-            name="place-openhours"
+            name="place-start"
             id="new-place-openhours"
             value="09:00"
+            required
+          >
+        </label>
+        <label>Closes: 
+          <input
+            type="time"
+            name="place-end"
+            id="new-place-openhours"
+            value="18:00"
             required
           >
         </label>

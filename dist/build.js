@@ -597,6 +597,8 @@ var _js_data_places_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/_
 /* harmony import */ var _js_components_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/components/map */ "./src/js/components/map.js");
 /* harmony import */ var _js_components_places__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/places */ "./src/js/components/places.js");
 /* harmony import */ var _js_components_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/components/form */ "./src/js/components/form.js");
+/* harmony import */ var _js_components_filters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/components/filters */ "./src/js/components/filters.js");
+
 
 
 
@@ -608,7 +610,47 @@ var _js_data_places_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/_
 const map = new _js_components_map__WEBPACK_IMPORTED_MODULE_2__["Map"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
 const placeList = new _js_components_places__WEBPACK_IMPORTED_MODULE_3__["Places"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
 const form = new _js_components_form__WEBPACK_IMPORTED_MODULE_4__["Form"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
+const filter = new _js_components_filters__WEBPACK_IMPORTED_MODULE_5__["Filter"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
 
+
+/***/ }),
+
+/***/ "./src/js/components/filters.js":
+/*!**************************************!*\
+  !*** ./src/js/components/filters.js ***!
+  \**************************************/
+/*! exports provided: Filter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Filter", function() { return Filter; });
+/* harmony import */ var _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/eventbus */ "./src/js/modules/eventbus.js");
+
+
+class Filter {
+  constructor(data) {
+    this.places = data;
+    this.openPlacesFilterBtn = document.querySelector('#filter-open-places')
+  }
+
+  init() {
+    this.subscribeToEvents();
+  }
+
+  subscribeToEvents() {
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('');
+    this.openPlacesFilterBtn.addEventListener('click', this.showOpenPlaces.bind(this));
+  }
+
+  showOpenPlaces() {
+    const nowTime = new Date().getHours();
+    const filteredList = this.places.filter(place => {
+      place.openhours.start.match(/\d+(?=\:)/) < nowTime < place.openhours.end.match(/\d+(?=\:)/);
+    });
+    console.log(filteredList);
+  }
+}
 
 /***/ }),
 
@@ -637,7 +679,8 @@ class Form {
     this.inputs = {
       title: form.querySelector('[name="place-title"]'),
       description: form.querySelector('[name="place-description"]'),
-      openhours: form.querySelector('[name="place-openhours"]'),
+      start: form.querySelector('[name="place-start"]'),
+      end: form.querySelector('[name="place-end"]'),
       ltd: form.querySelector('[name="place-ltd"]'),
       lgt: form.querySelector('[name="place-lgt"]'),
     };
@@ -649,7 +692,10 @@ class Form {
     this.defaultPlace = {
       title: '',
       description: '',
-      openhours: '09:00',
+      openhours: {
+        start: '09:00',
+        end: '18:00'
+      },
       coordinates: {
         ltd: '',
         lgt: '',
@@ -699,7 +745,8 @@ class Form {
 
     const title = form.querySelector('[name="place-title"]').value;
     const description = form.querySelector('[name="place-description"]').value;
-    const openhours = form.querySelector('[name="place-openhours"]').value;
+    const start = form.querySelector('[name="place-start"]').value;
+    const end = form.querySelector('[name="place-end"]').value;
     const ltd = form.querySelector('[name="place-ltd"]').value;
     const lgt = form.querySelector('[name="place-lgt"]').value;
 
@@ -709,7 +756,10 @@ class Form {
     return {
       title,
       description,
-      openhours,
+      openhours: {
+        start,
+        end
+      },
       coordinates: {
         ltd,
         lgt
@@ -729,7 +779,8 @@ class Form {
         const index = this.places.findIndex(place => place.id === this.formId);
         const oldPlace = this.places[index];
         this.places.splice(index, 1, Object.assign(oldPlace, newPlace));
-        _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('edit_place', newPlace);
+        console.log(this.places);
+        _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('edit_place');
       } else {
         this.places.push(Object.assign({}, this.defaultPlace, newPlace));
         _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('added_new_place', newPlace);
@@ -742,7 +793,8 @@ class Form {
   clearForm() {
     this.inputs.title.value = '';
     this.inputs.description.value = '';
-    this.inputs.openhours.value = '';
+    this.inputs.start.value = '';
+    this.inputs.end.value = '';
     this.inputs.ltd.value = '';
     this.inputs.lgt.value = '';
   }
@@ -767,7 +819,8 @@ class Form {
   fillForm(obj = this.defaultPlace) {
     this.inputs.title.value = obj.title;
     this.inputs.description.value = obj.description;
-    this.inputs.openhours.value = obj.openhours;
+    this.inputs.start.value = obj.openhours.start;
+    this.inputs.end.value = obj.openhours.end;
     this.inputs.ltd.value = obj.coordinates.ltd;
     this.inputs.lgt.value = obj.coordinates.lgt;
   }
@@ -810,10 +863,10 @@ class Map {
     this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
   }
 
-  createUrl() {
+  createUrl(markers = this.markers) {
     return `${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["URL"]}center=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].center}&zoom=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].zoom}&size=${
       _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].size
-    }&maptype=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].maptype}&${this.markers.map(marker => {
+    }&maptype=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].maptype}&${markers.map(marker => {
       return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
     })}&key=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["API_KEY"]}`.replace(/,markers/g, "&markers");
   }
@@ -824,7 +877,6 @@ class Map {
 
   refreshMap() {
     this.showMap(this.createUrl());
-    console.log(this.markers)
   }
 
   subscribeEvents() {
@@ -874,7 +926,10 @@ class Places {
   renderPlace(place) {
     const template = `
                     <li data-id="${place.id}">
-                      <span>${place.title}</span>
+                      <span>Name: ${place.title}</span>
+                      <span>Description: ${place.description}</span>
+                      <span>From: ${place.openhours.start}</span>
+                      <span>To: ${place.openhours.end}</span>
                       <button class="edit-place">Edit</button>
                       <button class="remove-place">Remove</button>
                     </li>
@@ -917,9 +972,9 @@ class Places {
     _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('removed_place', id);
   }
 
-  renderPlaceList() {
+  renderPlaceList(places = this.places) {
     this.container.innerHTML = '';
-    this.places.forEach(place => this.renderPlace(place));
+    places.forEach(place => this.renderPlace(place));
   }
 
   subscribeEvents() {
@@ -961,7 +1016,7 @@ const params = {
 /*! exports provided: 0, 1, 2, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("[{\"title\":\"Home\",\"description\":\"Home\",\"color\":\"red\",\"label\":\"A\",\"coordinates\":{\"ltd\":\"50.005083\",\"lgt\":\"36.190229\"},\"openhours\":\"09:00\",\"keywords\":[]},{\"title\":\"Work\",\"description\":\"Work\",\"color\":\"blue\",\"label\":\"W\",\"coordinates\":{\"ltd\":\"50.037139\",\"lgt\":\"36.218084\"},\"openhours\":\"10:00\",\"keywords\":[]},{\"title\":\"Jelya\",\"description\":\"Sister\",\"color\":\"green\",\"label\":\"J\",\"coordinates\":{\"ltd\":\"50.025086\",\"lgt\":\"36.217503\"},\"openhours\":\"08:00\",\"keywords\":[]}]");
+module.exports = JSON.parse("[{\"title\":\"Home\",\"description\":\"Home\",\"color\":\"red\",\"label\":\"A\",\"coordinates\":{\"ltd\":\"50.005083\",\"lgt\":\"36.190229\"},\"openhours\":{\"start\":\"09:00\",\"end\":\"21:00\"},\"keywords\":[]},{\"title\":\"Work\",\"description\":\"Work\",\"color\":\"blue\",\"label\":\"W\",\"coordinates\":{\"ltd\":\"50.037139\",\"lgt\":\"36.218084\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"18:00\"},\"keywords\":[]},{\"title\":\"Jelya\",\"description\":\"Sister\",\"color\":\"green\",\"label\":\"J\",\"coordinates\":{\"ltd\":\"50.025086\",\"lgt\":\"36.217503\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"17:00\"},\"keywords\":[]}]");
 
 /***/ }),
 

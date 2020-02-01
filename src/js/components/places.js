@@ -20,7 +20,10 @@ export class Places {
   renderPlace(place) {
     const template = `
                     <li data-id="${place.id}">
-                      <span>${place.title}</span>
+                      <span>Name: ${place.title}</span>
+                      <span>Description: ${place.description}</span>
+                      <span>From: ${place.openhours.start}</span>
+                      <span>To: ${place.openhours.end}</span>
                       <button class="edit-place">Edit</button>
                       <button class="remove-place">Remove</button>
                     </li>
@@ -63,9 +66,9 @@ export class Places {
     eventBus.publish('removed_place', id);
   }
 
-  renderPlaceList() {
+  renderPlaceList(places = this.places) {
     this.container.innerHTML = '';
-    this.places.forEach(place => this.renderPlace(place));
+    places.forEach(place => this.renderPlace(place));
   }
 
   subscribeEvents() {

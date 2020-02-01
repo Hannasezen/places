@@ -17,10 +17,10 @@ export class Map {
     this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
   }
 
-  createUrl() {
+  createUrl(markers = this.markers) {
     return `${URL}center=${params.center}&zoom=${params.zoom}&size=${
       params.size
-    }&maptype=${params.maptype}&${this.markers.map(marker => {
+    }&maptype=${params.maptype}&${markers.map(marker => {
       return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
     })}&key=${API_KEY}`.replace(/,markers/g, "&markers");
   }
@@ -31,7 +31,6 @@ export class Map {
 
   refreshMap() {
     this.showMap(this.createUrl());
-    console.log(this.markers)
   }
 
   subscribeEvents() {

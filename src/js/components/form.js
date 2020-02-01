@@ -11,7 +11,8 @@ export class Form {
     this.inputs = {
       title: form.querySelector('[name="place-title"]'),
       description: form.querySelector('[name="place-description"]'),
-      openhours: form.querySelector('[name="place-openhours"]'),
+      start: form.querySelector('[name="place-start"]'),
+      end: form.querySelector('[name="place-end"]'),
       ltd: form.querySelector('[name="place-ltd"]'),
       lgt: form.querySelector('[name="place-lgt"]'),
     };
@@ -23,7 +24,10 @@ export class Form {
     this.defaultPlace = {
       title: '',
       description: '',
-      openhours: '09:00',
+      openhours: {
+        start: '09:00',
+        end: '18:00'
+      },
       coordinates: {
         ltd: '',
         lgt: '',
@@ -73,7 +77,8 @@ export class Form {
 
     const title = form.querySelector('[name="place-title"]').value;
     const description = form.querySelector('[name="place-description"]').value;
-    const openhours = form.querySelector('[name="place-openhours"]').value;
+    const start = form.querySelector('[name="place-start"]').value;
+    const end = form.querySelector('[name="place-end"]').value;
     const ltd = form.querySelector('[name="place-ltd"]').value;
     const lgt = form.querySelector('[name="place-lgt"]').value;
 
@@ -83,7 +88,10 @@ export class Form {
     return {
       title,
       description,
-      openhours,
+      openhours: {
+        start,
+        end
+      },
       coordinates: {
         ltd,
         lgt
@@ -103,7 +111,8 @@ export class Form {
         const index = this.places.findIndex(place => place.id === this.formId);
         const oldPlace = this.places[index];
         this.places.splice(index, 1, Object.assign(oldPlace, newPlace));
-        eventBus.publish('edit_place', newPlace);
+        console.log(this.places);
+        eventBus.publish('edit_place');
       } else {
         this.places.push(Object.assign({}, this.defaultPlace, newPlace));
         eventBus.publish('added_new_place', newPlace);
@@ -116,7 +125,8 @@ export class Form {
   clearForm() {
     this.inputs.title.value = '';
     this.inputs.description.value = '';
-    this.inputs.openhours.value = '';
+    this.inputs.start.value = '';
+    this.inputs.end.value = '';
     this.inputs.ltd.value = '';
     this.inputs.lgt.value = '';
   }
@@ -141,7 +151,8 @@ export class Form {
   fillForm(obj = this.defaultPlace) {
     this.inputs.title.value = obj.title;
     this.inputs.description.value = obj.description;
-    this.inputs.openhours.value = obj.openhours;
+    this.inputs.start.value = obj.openhours.start;
+    this.inputs.end.value = obj.openhours.end;
     this.inputs.ltd.value = obj.coordinates.ltd;
     this.inputs.lgt.value = obj.coordinates.lgt;
   }

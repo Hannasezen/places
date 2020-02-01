@@ -10,7 +10,7 @@ export class Places {
     this.addId();
     this.bindEvents();
     this.subscribeEvents();
-    this.places.forEach(place => this.renderPlace(place));
+    this.renderPlaceList();
   }
 
   addId() {
@@ -47,7 +47,9 @@ export class Places {
 
   editPlace(target) {
     const li = target.closest('li');
-    console.log("edit-place", li);
+    const id = li.getAttribute('data-id');
+    eventBus.publish('open_place_for_editing', id);
+    document.body.classList.add('form-open');
   }
 
   removePlace(target) {
@@ -61,7 +63,13 @@ export class Places {
     eventBus.publish('removed_place', id);
   }
 
+  renderPlaceList() {
+    this.container.innerHTML = '';
+    this.places.forEach(place => this.renderPlace(place));
+  }
+
   subscribeEvents() {
     eventBus.subscribe('added_new_place', this.addPlace.bind(this));
+    eventBus.subscribe('edit_place', this.renderPlaceList.bind(this));
   }
 }

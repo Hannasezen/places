@@ -3,9 +3,9 @@ import places from './js/data/places.json';
 
 import { Map } from './js/components/map';
 import { Places } from "./js/components/places";
-import { AddPlace } from "./js/components/add-place";
+import { Form } from "./js/components/form";
 
 
 const map = new Map(places).init();
 const placeList = new Places(places).init();
-const addPlace = new AddPlace(places).init();
+const form = new Form(places).init();

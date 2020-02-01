@@ -11,6 +11,10 @@ body {
   background: url('../images/map-holder.jpg') rgb(214, 204, 238);
 }
 
+.form-open .form {
+  display: block;
+}
+
 .form input:invalid {
   border-color: rgb(248, 131, 131)
 }

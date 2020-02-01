@@ -31,19 +31,13 @@ export class Map {
 
   refreshMap() {
     this.showMap(this.createUrl());
+    console.log(this.markers)
   }
 
   subscribeEvents() {
-    eventBus.subscribe('added_new_place', this.addMarker.bind(this));
-    eventBus.subscribe('removed_place', this.removeMarker.bind(this));
-  }
-
-  addMarker(newPlace) {
-    this.refreshMap();
-  }
-
-  removeMarker() {
-    this.refreshMap();
+    eventBus.subscribe('added_new_place', this.refreshMap.bind(this));
+    eventBus.subscribe('removed_place', this.refreshMap.bind(this));
+    eventBus.subscribe('edit_place', this.refreshMap.bind(this));
   }
 }
 

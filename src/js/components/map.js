@@ -8,8 +8,13 @@ export class Map {
   }
 
   init() {
+    this.addId();
     this.showMap(this.createUrl());
     this.subscribeEvents();
+  }
+
+  addId() {
+    this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
   }
 
   createUrl() {
@@ -24,14 +29,21 @@ export class Map {
     this.image.src = src;
   }
 
+  refreshMap() {
+    this.showMap(this.createUrl());
+  }
+
   subscribeEvents() {
     eventBus.subscribe('added_new_place', this.addMarker.bind(this));
+    eventBus.subscribe('removed_place', this.removeMarker.bind(this));
   }
 
   addMarker(newPlace) {
-    this.markers.push(newPlace);
-    this.showMap(this.createUrl());
-    console.log(newPlace);
+    this.refreshMap();
+  }
+
+  removeMarker() {
+    this.refreshMap();
   }
 }
 

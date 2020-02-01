@@ -1,7 +1,8 @@
 import { eventBus } from '../modules/eventbus';
 
 export class AddPlace {
-  constructor() {
+  constructor(data) {
+    this.places = data;
     this.addPlaceBtn = document.getElementById('add-place-btn');
     this.savePlaceBtn = document.getElementById('save-place-btn');
     this.addPlaceForm = document.getElementById('add-place-form');
@@ -30,22 +31,26 @@ export class AddPlace {
   }
 
   showModal() {
-    console.log('show-modal');
     this.addPlaceForm.classList.remove('hidden');
   }
 
   savePlace(e) {
     e.preventDefault();
-    console.log('save-form-submited');
+    const ltd = `${this.place.coordinates.ltd * 1 + (Math.random() - 0.5) / 20}`;
+    const lgt = `${this.place.coordinates.lgt * 1 + (Math.random() - 0.5) / 20}`;
+    const id = ltd + lgt;
+
     const serializedPlace = {
       title: "my-title",
       coordinates: {
-        lgt: `${this.place.coordinates.lgt * 1 + (Math.random() - 0.5) / 20}`,
-        ltd: `${this.place.coordinates.ltd * 1 + (Math.random() - 0.5) / 20}`,
-      }
+        lgt,
+        ltd
+      },
+      id,
     };
     if (this.validateForm(serializedPlace)) {
       const newPlace = Object.assign({}, this.place, serializedPlace);
+      this.places.push(newPlace);
       eventBus.publish('added_new_place', newPlace);
     }
   }

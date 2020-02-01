@@ -1,4 +1,5 @@
 import { eventBus } from '../modules/eventbus';
+import { EVENTS } from '../constants/events';
 
 export class Places {
   constructor(data) {
@@ -72,7 +73,7 @@ export class Places {
   }
 
   subscribeEvents() {
-    eventBus.subscribe('added_new_place', this.addPlace.bind(this));
+    eventBus.subscribe(EVENTS.ADDED_NEW_PLACE, this.addPlace.bind(this));
     eventBus.subscribe('edit_place', this.renderPlaceList.bind(this));
     eventBus.subscribe('show_filtered_places', this.renderPlaceList.bind(this));
   }

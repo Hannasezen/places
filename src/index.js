@@ -1,4 +1,5 @@
 import css from "./css/style.css";
+import loader from './images/loader.gif';
 import places from './js/data/places.json';
 
 import { Map } from './js/components/map';

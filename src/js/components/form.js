@@ -1,4 +1,5 @@
 import { eventBus } from '../modules/eventbus';
+import { EVENTS } from '../constants/events';
 import validateForm from '../modules/validate-form';
 
 export class Form {
@@ -115,7 +116,7 @@ export class Form {
         eventBus.publish('edit_place');
       } else {
         this.places.push(Object.assign({}, this.defaultPlace, newPlace));
-        eventBus.publish('added_new_place', newPlace);
+        eventBus.publish(EVENTS.ADDED_NEW_PLACE, newPlace);
       }
       this.clearForm();
       this.closeForm();

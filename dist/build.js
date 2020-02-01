@@ -81,187 +81,71 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/style.css":
-/*!*****************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/style.css ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../images/map-holder.jpg */ "./src/images/map-holder.jpg");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
-// Module
-exports.push([module.i, "body {\n}\n\n.hidden {\n  display: none;\n}\n\n.map {\n  width: 600px;\n  height: 300px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") rgb(214, 204, 238);\n}\n\n.form-open .form {\n  display: block;\n}\n\n.form input:invalid {\n  border-color: rgb(248, 131, 131)\n}\n", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/api.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/******/ ([
+/* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_style_css__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _images_loader_gif__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7);
+/* harmony import */ var _favicon_ico__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8);
+/* harmony import */ var _favicon_ico__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_favicon_ico__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _js_data_places_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9);
+var _js_data_places_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(9, 1);
+/* harmony import */ var _js_components_map__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
+/* harmony import */ var _js_components_places__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(14);
+/* harmony import */ var _js_components_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(15);
+/* harmony import */ var _js_components_filters__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(17);
 
 
-/*
-  MIT License http://www.opensource.org/licenses/mit-license.php
-  Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-// eslint-disable-next-line func-names
-module.exports = function (useSourceMap) {
-  var list = []; // return the list of modules as css string
-
-  list.toString = function toString() {
-    return this.map(function (item) {
-      var content = cssWithMappingToString(item, useSourceMap);
-
-      if (item[2]) {
-        return "@media ".concat(item[2], " {").concat(content, "}");
-      }
-
-      return content;
-    }).join('');
-  }; // import a list of modules into the list
-  // eslint-disable-next-line func-names
 
 
-  list.i = function (modules, mediaQuery, dedupe) {
-    if (typeof modules === 'string') {
-      // eslint-disable-next-line no-param-reassign
-      modules = [[null, modules, '']];
-    }
-
-    var alreadyImportedModules = {};
-
-    if (dedupe) {
-      for (var i = 0; i < this.length; i++) {
-        // eslint-disable-next-line prefer-destructuring
-        var id = this[i][0];
-
-        if (id != null) {
-          alreadyImportedModules[id] = true;
-        }
-      }
-    }
-
-    for (var _i = 0; _i < modules.length; _i++) {
-      var item = [].concat(modules[_i]);
-
-      if (dedupe && alreadyImportedModules[item[0]]) {
-        // eslint-disable-next-line no-continue
-        continue;
-      }
-
-      if (mediaQuery) {
-        if (!item[2]) {
-          item[2] = mediaQuery;
-        } else {
-          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
-        }
-      }
-
-      list.push(item);
-    }
-  };
-
-  return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
-
-  var cssMapping = item[3];
-
-  if (!cssMapping) {
-    return content;
-  }
-
-  if (useSourceMap && typeof btoa === 'function') {
-    var sourceMapping = toComment(cssMapping);
-    var sourceURLs = cssMapping.sources.map(function (source) {
-      return "/*# sourceURL=".concat(cssMapping.sourceRoot || '').concat(source, " */");
-    });
-    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-  }
-
-  return [content].join('\n');
-} // Adapted from convert-source-map (MIT)
 
 
-function toComment(sourceMap) {
-  // eslint-disable-next-line no-undef
-  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
-  return "/*# ".concat(data, " */");
-}
+
+
+
+
+
+const map = new _js_components_map__WEBPACK_IMPORTED_MODULE_4__["Map"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_3__).init();
+const placeList = new _js_components_places__WEBPACK_IMPORTED_MODULE_5__["Places"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_3__).init();
+const form = new _js_components_form__WEBPACK_IMPORTED_MODULE_6__["Form"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_3__).init();
+const filter = new _js_components_filters__WEBPACK_IMPORTED_MODULE_7__["Filter"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_3__).init();
+
 
 /***/ }),
-
-/***/ "./node_modules/css-loader/dist/runtime/getUrl.js":
-/*!********************************************************!*\
-  !*** ./node_modules/css-loader/dist/runtime/getUrl.js ***!
-  \********************************************************/
-/*! no static exports found */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+var api = __webpack_require__(2);
+            var content = __webpack_require__(3);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
 
 
-module.exports = function (url, options) {
-  if (!options) {
-    // eslint-disable-next-line no-param-reassign
-    options = {};
-  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
 
-
-  url = url && url.__esModule ? url.default : url;
-
-  if (typeof url !== 'string') {
-    return url;
-  } // If url is already wrapped in quotes, remove them
-
-
-  if (/^['"].*['"]$/.test(url)) {
-    // eslint-disable-next-line no-param-reassign
-    url = url.slice(1, -1);
-  }
-
-  if (options.hash) {
-    // eslint-disable-next-line no-param-reassign
-    url += options.hash;
-  } // Should url be wrapped?
-  // See https://drafts.csswg.org/css-values-3/#urls
-
-
-  if (/["'() \t\n]/.test(url) || options.needQuotes) {
-    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, '\\n'), "\"");
-  }
-
-  return url;
-};
+module.exports = exported;
 
 /***/ }),
-
-/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-  \****************************************************************************/
-/*! no static exports found */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -536,137 +420,408 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-
-/***/ "./src/css/style.css":
-/*!***************************!*\
-  !*** ./src/css/style.css ***!
-  \***************************/
-/*! no static exports found */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./style.css */ "./node_modules/css-loader/dist/cjs.js!./src/css/style.css");
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(4);
+var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(5);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(6);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+// Module
+exports.push([module.i, "body {\n  color: red;\n}\n\n.hidden {\n  display: none;\n}\n\n.map {\n  width: 600px;\n  height: 300px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") rgb(214, 204, 238);\n}\n\n.form-open .form {\n  display: block;\n}\n\n.form input:invalid {\n  border-color: rgb(248, 131, 131)\n}\n", ""]);
+// Exports
+module.exports = exports;
 
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-var exported = content.locals ? content.locals : {};
-
-
-
-module.exports = exported;
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ "./src/images/map-holder.jpg":
-/*!***********************************!*\
-  !*** ./src/images/map-holder.jpg ***!
-  \***********************************/
-/*! exports provided: default */
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
+
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot || '').concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
+
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+  return "/*# ".concat(data, " */");
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (url, options) {
+  if (!options) {
+    // eslint-disable-next-line no-param-reassign
+    options = {};
+  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+
+
+  url = url && url.__esModule ? url.default : url;
+
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    // eslint-disable-next-line no-param-reassign
+    url = url.slice(1, -1);
+  }
+
+  if (options.hash) {
+    // eslint-disable-next-line no-param-reassign
+    url += options.hash;
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || options.needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, '\\n'), "\"");
+  }
+
+  return url;
+};
+
+/***/ }),
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "1d0e72a58cc281dd3f9cefa4e6048938.jpg");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "src/images/map-holder.jpg");
 
 /***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! no exports provided */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/style.css */ "./src/css/style.css");
-/* harmony import */ var _css_style_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_style_css__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _js_data_places_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./js/data/places.json */ "./src/js/data/places.json");
-var _js_data_places_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./js/data/places.json */ "./src/js/data/places.json", 1);
-/* harmony import */ var _js_components_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/components/map */ "./src/js/components/map.js");
-/* harmony import */ var _js_components_places__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/places */ "./src/js/components/places.js");
-/* harmony import */ var _js_components_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/components/form */ "./src/js/components/form.js");
-/* harmony import */ var _js_components_filters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/components/filters */ "./src/js/components/filters.js");
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "src/images/loader.gif");
 
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
 
-
-
-
-
-
-
-
-const map = new _js_components_map__WEBPACK_IMPORTED_MODULE_2__["Map"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
-const placeList = new _js_components_places__WEBPACK_IMPORTED_MODULE_3__["Places"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
-const form = new _js_components_form__WEBPACK_IMPORTED_MODULE_4__["Form"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
-const filter = new _js_components_filters__WEBPACK_IMPORTED_MODULE_5__["Filter"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_1__).init();
 
 
 /***/ }),
+/* 9 */
+/***/ (function(module) {
 
-/***/ "./src/js/components/filters.js":
-/*!**************************************!*\
-  !*** ./src/js/components/filters.js ***!
-  \**************************************/
-/*! exports provided: Filter */
+module.exports = JSON.parse("[{\"title\":\"Home\",\"description\":\"Home\",\"color\":\"red\",\"label\":\"A\",\"coordinates\":{\"ltd\":\"50.005083\",\"lgt\":\"36.190229\"},\"openhours\":{\"start\":\"09:00\",\"end\":\"21:00\"},\"keywords\":[]},{\"title\":\"Work\",\"description\":\"Work\",\"color\":\"blue\",\"label\":\"W\",\"coordinates\":{\"ltd\":\"50.037139\",\"lgt\":\"36.218084\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"18:00\"},\"keywords\":[]},{\"title\":\"Jelya\",\"description\":\"Sister\",\"color\":\"green\",\"label\":\"J\",\"coordinates\":{\"ltd\":\"50.025086\",\"lgt\":\"36.217503\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"17:00\"},\"keywords\":[]}]");
+
+/***/ }),
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Filter", function() { return Filter; });
-/* harmony import */ var _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/eventbus */ "./src/js/modules/eventbus.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
+/* harmony import */ var _constants_api_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(11);
+/* harmony import */ var _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
+/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(13);
 
 
-class Filter {
+
+
+class Map {
   constructor(data) {
-    this.places = data;
-    this.openPlacesFilterBtn = document.querySelector('#filter-open-places')
+    this.markers = data;
+    this.image = document.querySelector("#map-image");
   }
 
   init() {
-    this.subscribeToEvents();
+    this.addId();
+    this.showMap(this.createUrl());
+    this.subscribeEvents();
   }
 
-  subscribeToEvents() {
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('');
-    this.openPlacesFilterBtn.addEventListener('click', this.showOpenPlaces.bind(this));
+  addId() {
+    this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
   }
 
-  showOpenPlaces() {
-    const nowTime = new Date().getHours();
-    const filteredList = this.places.filter(place => {
-      return nowTime > place.openhours.start.match(/\d+(?=\:)/)[0]
-          && nowTime < place.openhours.end.match(/\d+(?=\:)/)[0];
-    });
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('show_filtered_places', filteredList);
+  createUrl(markers) {
+    markers = markers && markers.length ? markers : this.markers;
+
+    return `${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["URL"]}center=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].center}&zoom=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].zoom}&size=${
+      _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].size
+    }&maptype=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].maptype}&${markers.map(marker => {
+      return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
+    })}&key=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["API_KEY"]}`.replace(/,markers/g, "&markers");
+  }
+
+  showMap(src) {
+    this.image.src = src;
+  }
+
+  refreshMap(data) {
+    this.showMap(this.createUrl(data));
+  }
+
+  subscribeEvents() {
+    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].ADDED_NEW_PLACE, this.refreshMap.bind(this));
+    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('removed_place', this.refreshMap.bind(this));
+    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('edit_place', this.refreshMap.bind(this));
+    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('show_filtered_places', this.refreshMap.bind(this));
+  }
+}
+
+
+
+
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_KEY", function() { return API_KEY; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL", function() { return URL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "params", function() { return params; });
+const API_KEY = "AIzaSyB-uwx38PKPh0z8CaYHcnvduxs9Mee2M4E";	
+const URL = "https://maps.googleapis.com/maps/api/staticmap?";	
+const params = {	
+  center: "Kharkiv,Ukraine",	
+  zoom: 11,	
+  size: "600x300",	
+  maptype: "roadmap"	
+};	
+
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventBus", function() { return eventBus; });
+const eventBus = {
+  channels: {},
+  subscribe (channelName, listener) {
+    if (!this.channels[channelName]) {
+      this.channels[channelName] = []
+    }
+    this.channels[channelName].push(listener)
+  },
+
+  publish (channelName, data) {
+    const channel = this.channels[channelName]
+    if (!channel || !channel.length) {
+      return
+    }
+
+    channel.forEach(listener => listener(data))
+  }
+}
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EVENTS", function() { return EVENTS; });
+const EVENTS = {
+  ADDED_NEW_PLACE: 'ADDED_NEW_PLACE'
+}
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Places", function() { return Places; });
+/* harmony import */ var _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+
+
+
+class Places {
+  constructor(data) {
+    this.places = data;
+    this.container = document.getElementById("place-list");
+  }
+
+  init() {
+    this.addId();
+    this.bindEvents();
+    this.subscribeEvents();
+    this.renderPlaceList();
+  }
+
+  addId() {
+    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}`);
+  }
+
+  renderPlace(place) {
+    const template = `
+                    <li data-id="${place.id}">
+                      <span>Name: ${place.title}</span>
+                      <span>Description: ${place.description}</span>
+                      <span>From: ${place.openhours.start}</span>
+                      <span>To: ${place.openhours.end}</span>
+                      <button class="edit-place">Edit</button>
+                      <button class="remove-place">Remove</button>
+                    </li>
+                    `;
+    this.container.insertAdjacentHTML("beforeend", template);
+  }
+  
+  bindEvents() {
+    this.container.addEventListener("click", this.clickHandler.bind(this));
+  }
+
+  clickHandler(e) {
+    const target = e.target;
+    if (target.classList.contains("edit-place")) {
+      this.editPlace(target);
+    } else if (target.classList.contains("remove-place")) {
+      this.removePlace(target);
+    }
+  }
+
+  addPlace(newPlace) {
+    this.renderPlace(newPlace);
+  }
+
+  editPlace(target) {
+    const li = target.closest('li');
+    const id = li.getAttribute('data-id');
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('open_place_for_editing', id);
+    document.body.classList.add('form-open');
+  }
+
+  removePlace(target) {
+    const li = target.closest('li');
+    const id = li.getAttribute('data-id');
+    const index = this.places.findIndex(place => place.id === id);
+    if (index !== -1) {
+      this.places.splice(index, 1);
+      li.remove();
+    }    
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('removed_place', id);
+  }
+
+  renderPlaceList(places = this.places) {
+    this.container.innerHTML = '';
+    places.forEach(place => this.renderPlace(place));
+  }
+
+  subscribeEvents() {
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].ADDED_NEW_PLACE, this.addPlace.bind(this));
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('edit_place', this.renderPlaceList.bind(this));
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('show_filtered_places', this.renderPlaceList.bind(this));
   }
 }
 
 /***/ }),
-
-/***/ "./src/js/components/form.js":
-/*!***********************************!*\
-  !*** ./src/js/components/form.js ***!
-  \***********************************/
-/*! exports provided: Form */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return Form; });
-/* harmony import */ var _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/eventbus */ "./src/js/modules/eventbus.js");
-/* harmony import */ var _modules_validate_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/validate-form */ "./src/js/modules/validate-form.js");
+/* harmony import */ var _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+/* harmony import */ var _constants_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(13);
+/* harmony import */ var _modules_validate_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
+
 
 
 
@@ -784,7 +939,7 @@ class Form {
         _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('edit_place');
       } else {
         this.places.push(Object.assign({}, this.defaultPlace, newPlace));
-        _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('added_new_place', newPlace);
+        _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].ADDED_NEW_PLACE, newPlace);
       }
       this.clearForm();
       this.closeForm();
@@ -832,236 +987,7 @@ class Form {
 }
 
 /***/ }),
-
-/***/ "./src/js/components/map.js":
-/*!**********************************!*\
-  !*** ./src/js/components/map.js ***!
-  \**********************************/
-/*! exports provided: Map */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
-/* harmony import */ var _constants_api_config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants/api_config */ "./src/js/constants/api_config.js");
-/* harmony import */ var _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/eventbus.js */ "./src/js/modules/eventbus.js");
-
-
-
-class Map {
-  constructor(data) {
-    this.markers = data;
-    this.image = document.querySelector("#map-image");
-  }
-
-  init() {
-    this.addId();
-    this.showMap(this.createUrl());
-    this.subscribeEvents();
-  }
-
-  addId() {
-    this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
-  }
-
-  createUrl(markers) {
-    markers = markers && markers.length ? markers : this.markers;
-
-    return `${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["URL"]}center=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].center}&zoom=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].zoom}&size=${
-      _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].size
-    }&maptype=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].maptype}&${markers.map(marker => {
-      return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
-    })}&key=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["API_KEY"]}`.replace(/,markers/g, "&markers");
-  }
-
-  showMap(src) {
-    this.image.src = src;
-  }
-
-  refreshMap(data) {
-    this.showMap(this.createUrl(data));
-  }
-
-  subscribeEvents() {
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('added_new_place', this.refreshMap.bind(this));
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('removed_place', this.refreshMap.bind(this));
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('edit_place', this.refreshMap.bind(this));
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('show_filtered_places', this.refreshMap.bind(this));
-  }
-}
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./src/js/components/places.js":
-/*!*************************************!*\
-  !*** ./src/js/components/places.js ***!
-  \*************************************/
-/*! exports provided: Places */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Places", function() { return Places; });
-/* harmony import */ var _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/eventbus */ "./src/js/modules/eventbus.js");
-
-
-class Places {
-  constructor(data) {
-    this.places = data;
-    this.container = document.getElementById("place-list");
-  }
-
-  init() {
-    this.addId();
-    this.bindEvents();
-    this.subscribeEvents();
-    this.renderPlaceList();
-  }
-
-  addId() {
-    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}`);
-  }
-
-  renderPlace(place) {
-    const template = `
-                    <li data-id="${place.id}">
-                      <span>Name: ${place.title}</span>
-                      <span>Description: ${place.description}</span>
-                      <span>From: ${place.openhours.start}</span>
-                      <span>To: ${place.openhours.end}</span>
-                      <button class="edit-place">Edit</button>
-                      <button class="remove-place">Remove</button>
-                    </li>
-                    `;
-    this.container.insertAdjacentHTML("beforeend", template);
-  }
-  
-  bindEvents() {
-    this.container.addEventListener("click", this.clickHandler.bind(this));
-  }
-
-  clickHandler(e) {
-    const target = e.target;
-    if (target.classList.contains("edit-place")) {
-      this.editPlace(target);
-    } else if (target.classList.contains("remove-place")) {
-      this.removePlace(target);
-    }
-  }
-
-  addPlace(newPlace) {
-    this.renderPlace(newPlace);
-  }
-
-  editPlace(target) {
-    const li = target.closest('li');
-    const id = li.getAttribute('data-id');
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('open_place_for_editing', id);
-    document.body.classList.add('form-open');
-  }
-
-  removePlace(target) {
-    const li = target.closest('li');
-    const id = li.getAttribute('data-id');
-    const index = this.places.findIndex(place => place.id === id);
-    if (index !== -1) {
-      this.places.splice(index, 1);
-      li.remove();
-    }    
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('removed_place', id);
-  }
-
-  renderPlaceList(places = this.places) {
-    this.container.innerHTML = '';
-    places.forEach(place => this.renderPlace(place));
-  }
-
-  subscribeEvents() {
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('added_new_place', this.addPlace.bind(this));
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('edit_place', this.renderPlaceList.bind(this));
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('show_filtered_places', this.renderPlaceList.bind(this));
-  }
-}
-
-/***/ }),
-
-/***/ "./src/js/constants/api_config.js":
-/*!****************************************!*\
-  !*** ./src/js/constants/api_config.js ***!
-  \****************************************/
-/*! exports provided: API_KEY, URL, params */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_KEY", function() { return API_KEY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "URL", function() { return URL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "params", function() { return params; });
-const API_KEY = "AIzaSyB-uwx38PKPh0z8CaYHcnvduxs9Mee2M4E";	
-const URL = "https://maps.googleapis.com/maps/api/staticmap?";	
-const params = {	
-  center: "Kharkiv,Ukraine",	
-  zoom: 11,	
-  size: "600x300",	
-  maptype: "roadmap"	
-};	
-
-
-/***/ }),
-
-/***/ "./src/js/data/places.json":
-/*!*********************************!*\
-  !*** ./src/js/data/places.json ***!
-  \*********************************/
-/*! exports provided: 0, 1, 2, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("[{\"title\":\"Home\",\"description\":\"Home\",\"color\":\"red\",\"label\":\"A\",\"coordinates\":{\"ltd\":\"50.005083\",\"lgt\":\"36.190229\"},\"openhours\":{\"start\":\"09:00\",\"end\":\"21:00\"},\"keywords\":[]},{\"title\":\"Work\",\"description\":\"Work\",\"color\":\"blue\",\"label\":\"W\",\"coordinates\":{\"ltd\":\"50.037139\",\"lgt\":\"36.218084\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"18:00\"},\"keywords\":[]},{\"title\":\"Jelya\",\"description\":\"Sister\",\"color\":\"green\",\"label\":\"J\",\"coordinates\":{\"ltd\":\"50.025086\",\"lgt\":\"36.217503\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"17:00\"},\"keywords\":[]}]");
-
-/***/ }),
-
-/***/ "./src/js/modules/eventbus.js":
-/*!************************************!*\
-  !*** ./src/js/modules/eventbus.js ***!
-  \************************************/
-/*! exports provided: eventBus */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventBus", function() { return eventBus; });
-const eventBus = {
-  channels: {},
-  subscribe (channelName, listener) {
-    if (!this.channels[channelName]) {
-      this.channels[channelName] = []
-    }
-    this.channels[channelName].push(listener)
-  },
-
-  publish (channelName, data) {
-    const channel = this.channels[channelName]
-    if (!channel || !channel.length) {
-      return
-    }
-
-    channel.forEach(listener => listener(data))
-  }
-}
-
-
-/***/ }),
-
-/***/ "./src/js/modules/validate-form.js":
-/*!*****************************************!*\
-  !*** ./src/js/modules/validate-form.js ***!
-  \*****************************************/
-/*! exports provided: ValidateForm */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1073,7 +999,41 @@ class ValidateForm {
   }
 }
 
-/***/ })
+/***/ }),
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/******/ });
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Filter", function() { return Filter; });
+/* harmony import */ var _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(12);
+
+
+class Filter {
+  constructor(data) {
+    this.places = data;
+    this.openPlacesFilterBtn = document.querySelector('#filter-open-places')
+  }
+
+  init() {
+    this.subscribeToEvents();
+  }
+
+  subscribeToEvents() {
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('');
+    this.openPlacesFilterBtn.addEventListener('click', this.showOpenPlaces.bind(this));
+  }
+
+  showOpenPlaces() {
+    const nowTime = new Date().getHours();
+    const filteredList = this.places.filter(place => {
+      return nowTime > place.openhours.start.match(/\d+(?=\:)/)[0]
+          && nowTime < place.openhours.end.match(/\d+(?=\:)/)[0];
+    });
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('show_filtered_places', filteredList);
+  }
+}
+
+/***/ })
+/******/ ]);
 //# sourceMappingURL=build.js.map

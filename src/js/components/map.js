@@ -1,5 +1,6 @@
 import { API_KEY, URL, params } from "../constants/api_config";
 import { eventBus } from '../modules/eventbus.js';
+import { EVENTS } from '../constants/events';
 
 export class Map {
   constructor(data) {
@@ -36,7 +37,7 @@ export class Map {
   }
 
   subscribeEvents() {
-    eventBus.subscribe('added_new_place', this.refreshMap.bind(this));
+    eventBus.subscribe(EVENTS.ADDED_NEW_PLACE, this.refreshMap.bind(this));
     eventBus.subscribe('removed_place', this.refreshMap.bind(this));
     eventBus.subscribe('edit_place', this.refreshMap.bind(this));
     eventBus.subscribe('show_filtered_places', this.refreshMap.bind(this));

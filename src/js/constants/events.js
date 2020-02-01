@@ -1,0 +1,3 @@
+export const EVENTS = {
+  ADDED_NEW_PLACE: 'ADDED_NEW_PLACE'
+}

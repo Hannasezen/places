@@ -1,4 +1,5 @@
 import { eventBus } from '../modules/eventbus';
+import validateForm from '../modules/validate-form';
 
 export class AddPlace {
   constructor(data) {
@@ -10,10 +11,10 @@ export class AddPlace {
     this.place = {
       title: '',
       description: '',
-      open: '9-00',
+      open: '',
       coordinates: {
-        ltd: '50.005063',
-        lgt: '36.190219'
+        ltd: '',
+        lgt: '',
       },
       keywords: [],
       color: 'yellow',
@@ -22,7 +23,27 @@ export class AddPlace {
   }
 
   init() {
+    this.getCoords();
     this.bindEventHandlers();
+  }
+
+  getCoords() {
+    const success = (res) => {
+      this.place.coordinates = {
+        ltd: res.coords.latitude,
+        lgt: res.coords.longitude,
+      };
+      this.addDefaultValues(res.coords);
+    };
+    const error = (error) => console.error(error.message);
+    return window.navigator.geolocation.getCurrentPosition(success, error);
+  }
+
+  addDefaultValues(coords) {
+    const ltdInput = this.addPlaceForm.querySelector('[name="place-ltd"]');
+    const lgtInput = this.addPlaceForm.querySelector('[name="place-lgt"]');
+    ltdInput.setAttribute('value', coords.latitude);
+    lgtInput.setAttribute('value', coords.longitude);
   }
 
   bindEventHandlers() {
@@ -34,28 +55,39 @@ export class AddPlace {
     this.addPlaceForm.classList.remove('hidden');
   }
 
+  serializeForm(form) {
+    const title = form.querySelector('[name="place-title"]').value || 'New Place';
+    const description = form.querySelector('[name="place-description"]').value || 'No discription';
+    const openhours = form.querySelector('[name="place-openhours"]').value;
+    const ltd = form.querySelector('[name="place-ltd"]').value;
+    const lgt = form.querySelector('[name="place-lgt"]').value;
+
+    const id = `${ltd}${lgt}`;
+
+    return {
+      title,
+      description,
+      openhours,
+      coordinates: {
+        ltd,
+        lgt
+      },
+      id
+    }
+  }
+
   savePlace(e) {
     e.preventDefault();
-    const ltd = `${this.place.coordinates.ltd * 1 + (Math.random() - 0.5) / 20}`;
-    const lgt = `${this.place.coordinates.lgt * 1 + (Math.random() - 0.5) / 20}`;
-    const id = ltd + lgt;
-
-    const serializedPlace = {
-      title: "my-title",
-      coordinates: {
-        lgt,
-        ltd
-      },
-      id,
-    };
-    if (this.validateForm(serializedPlace)) {
+ 
+    if (this.validateForm(this.addPlaceForm)) {
+      const serializedPlace = this.serializeForm(this.addPlaceForm);
       const newPlace = Object.assign({}, this.place, serializedPlace);
       this.places.push(newPlace);
       eventBus.publish('added_new_place', newPlace);
     }
   }
 
-  validateForm(place) {
+  validateForm(form) {
     return true;
   }
 }

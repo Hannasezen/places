@@ -15,21 +15,47 @@
     <div>
       <button id="add-place-btn">Add Place</button>
       <ul id="place-list"></ul>
-      <form class="hidden" id="add-place-form">
+      <form class="form hidden" id="add-place-form">
         <label>Title: 
-          <input type="text" name="place-title" id="new-place-title" placeholder="title">
+          <input
+            type="text"
+            name="place-title"
+            id="new-place-title"
+            placeholder="Type a title"
+          >
         </label>
         <label>Description: 
-          <input type="text" name="place-description" id="new-place-description" placeholder="description">
+          <input
+            type="text"
+            name="place-description"
+            id="new-place-description"
+            placeholder="Type a description"
+          >
         </label>
         <label>Is open: 
-          <input type="time" name="place-openhours" id="new-place-openhours">
+          <input
+            type="time"
+            name="place-openhours"
+            id="new-place-openhours"
+            value="09:00"
+            required
+          >
         </label>
         <label>Latitude: 
-          <input type="text" name="place-ltd" id="new-place-ltd" placeholder="latitude">
+          <input
+            type="text"
+            name="place-ltd"
+            id="new-place-ltd" 
+            placeholder="latitude"
+          >
         </label>
         <label>Longitude: 
-          <input type="text" name="place-lgt" id="new-place-lgt" placeholder="longitude">
+          <input
+            type="text"
+            name="place-lgt"
+            id="new-place-lgt"
+            placeholder="longitude"
+          >
         </label>
         <button id="save-place-btn">Save</button>
       </form>

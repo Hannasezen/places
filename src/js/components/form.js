@@ -108,7 +108,21 @@ export class Form {
         this.places.push(Object.assign({}, this.defaultPlace, newPlace));
         eventBus.publish('added_new_place', newPlace);
       }
+      this.clearForm();
+      this.closeForm();
     }
+  }
+
+  clearForm() {
+    this.inputs.title.value = '';
+    this.inputs.description.value = '';
+    this.inputs.openhours.value = '';
+    this.inputs.ltd.value = '';
+    this.inputs.lgt.value = '';
+  }
+
+  closeForm() {
+    document.body.classList.remove('form-open');
   }
 
   subscribeToEvents() {

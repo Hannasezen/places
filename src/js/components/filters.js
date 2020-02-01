@@ -18,8 +18,9 @@ export class Filter {
   showOpenPlaces() {
     const nowTime = new Date().getHours();
     const filteredList = this.places.filter(place => {
-      place.openhours.start.match(/\d+(?=\:)/) < nowTime < place.openhours.end.match(/\d+(?=\:)/);
+      return nowTime > place.openhours.start.match(/\d+(?=\:)/)[0]
+          && nowTime < place.openhours.end.match(/\d+(?=\:)/)[0];
     });
-    console.log(filteredList);
+    eventBus.publish('show_filtered_places', filteredList);
   }
 }

@@ -74,5 +74,6 @@ export class Places {
   subscribeEvents() {
     eventBus.subscribe('added_new_place', this.addPlace.bind(this));
     eventBus.subscribe('edit_place', this.renderPlaceList.bind(this));
+    eventBus.subscribe('show_filtered_places', this.renderPlaceList.bind(this));
   }
 }

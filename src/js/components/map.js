@@ -17,7 +17,9 @@ export class Map {
     this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
   }
 
-  createUrl(markers = this.markers) {
+  createUrl(markers) {
+    markers = markers && markers.length ? markers : this.markers;
+
     return `${URL}center=${params.center}&zoom=${params.zoom}&size=${
       params.size
     }&maptype=${params.maptype}&${markers.map(marker => {
@@ -29,14 +31,15 @@ export class Map {
     this.image.src = src;
   }
 
-  refreshMap() {
-    this.showMap(this.createUrl());
+  refreshMap(data) {
+    this.showMap(this.createUrl(data));
   }
 
   subscribeEvents() {
     eventBus.subscribe('added_new_place', this.refreshMap.bind(this));
     eventBus.subscribe('removed_place', this.refreshMap.bind(this));
     eventBus.subscribe('edit_place', this.refreshMap.bind(this));
+    eventBus.subscribe('show_filtered_places', this.refreshMap.bind(this));
   }
 }
 

@@ -646,9 +646,10 @@ class Filter {
   showOpenPlaces() {
     const nowTime = new Date().getHours();
     const filteredList = this.places.filter(place => {
-      place.openhours.start.match(/\d+(?=\:)/) < nowTime < place.openhours.end.match(/\d+(?=\:)/);
+      return nowTime > place.openhours.start.match(/\d+(?=\:)/)[0]
+          && nowTime < place.openhours.end.match(/\d+(?=\:)/)[0];
     });
-    console.log(filteredList);
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish('show_filtered_places', filteredList);
   }
 }
 
@@ -863,7 +864,9 @@ class Map {
     this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
   }
 
-  createUrl(markers = this.markers) {
+  createUrl(markers) {
+    markers = markers && markers.length ? markers : this.markers;
+
     return `${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["URL"]}center=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].center}&zoom=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].zoom}&size=${
       _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].size
     }&maptype=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].maptype}&${markers.map(marker => {
@@ -875,14 +878,15 @@ class Map {
     this.image.src = src;
   }
 
-  refreshMap() {
-    this.showMap(this.createUrl());
+  refreshMap(data) {
+    this.showMap(this.createUrl(data));
   }
 
   subscribeEvents() {
     _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('added_new_place', this.refreshMap.bind(this));
     _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('removed_place', this.refreshMap.bind(this));
     _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('edit_place', this.refreshMap.bind(this));
+    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe('show_filtered_places', this.refreshMap.bind(this));
   }
 }
 
@@ -980,6 +984,7 @@ class Places {
   subscribeEvents() {
     _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('added_new_place', this.addPlace.bind(this));
     _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('edit_place', this.renderPlaceList.bind(this));
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe('show_filtered_places', this.renderPlaceList.bind(this));
   }
 }
 

@@ -8,6 +8,7 @@ export class Form {
     this.addPlaceBtn = document.getElementById('add-place-btn');
     this.savePlaceBtn = document.getElementById('save-place-btn');
     this.form = document.getElementById('form');
+    this.holder = document.querySelector('#form-holder');
 
     this.inputs = {
       title: form.querySelector('[name="place-title"]'),
@@ -58,6 +59,13 @@ export class Form {
 
   bindEventHandlers() {
     this.addPlaceBtn.addEventListener('click', this.showModal.bind(this));
+    this.holder.addEventListener('click', (e) => {
+      if (e.target.closest('.form')) {
+        return;
+      }
+      this.clearForm();
+      this.closeForm();
+    }, true);
     this.form.addEventListener('submit', this.savePlace.bind(this));
   }
 
@@ -82,7 +90,7 @@ export class Form {
     const ltd = form.querySelector('[name="place-ltd"]').value;
     const lgt = form.querySelector('[name="place-lgt"]').value;
 
-    const id = this.formId ? this.formId : `${ltd}${lgt}`;
+    const id = this.formId ? this.formId : `${ltd}${lgt}${new Date().getTime()}`;
     const label = title[0].toUpperCase();
 
     return {

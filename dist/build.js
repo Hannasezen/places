@@ -100,7 +100,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../images/map-holder
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "body {\n  color: red; }\n\n.hidden {\n  display: none; }\n\n.map {\n  width: 600px;\n  height: 300px;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") #d6ccee; }\n\n.open-places-btn .all-places-text {\n  display: inline; }\n\n.open-places-btn .open-places-text {\n  display: none; }\n\n.open-places-btn.open .all-places-text {\n  display: none; }\n\n.open-places-btn.open .open-places-text {\n  display: inline; }\n\n.form-open .form {\n  display: block; }\n  .form-open .form input:invalid {\n    border-color: #f88383; }\n", ""]);
+exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\n.hidden {\n  display: none; }\n\n.global-wrapper {\n  width: 90vw;\n  margin: 0 auto; }\n\n.container {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 2% 0; }\n  .container__item {\n    margin-bottom: 4%; }\n\n.map {\n  max-width: 600px;\n  max-height: 300px;\n  margin: 0 auto;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") #d6ccee; }\n  .map img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover; }\n\n.main-controls {\n  text-align: center; }\n\n.place-list {\n  list-style: none;\n  padding: 0;\n  margin: 0 auto 4% auto; }\n  .place-list__item {\n    padding: 2% 5%;\n    background: #f1c2c2;\n    margin-bottom: 1em;\n    border-radius: 2px; }\n  .place-list ul {\n    list-style: none;\n    padding-left: 0; }\n    .place-list ul li {\n      display: inline-block; }\n\n.place {\n  display: flex; }\n  .place__content {\n    display: flex;\n    flex-wrap: wrap;\n    flex-grow: 1; }\n  .place__title {\n    width: 100%;\n    margin-bottom: 0.5em;\n    font-size: 1em; }\n  .place__description {\n    width: 40%;\n    margin-bottom: 0.5em;\n    font-size: 0.8em; }\n\n.open-places-btn .all-places-text {\n  display: inline; }\n\n.open-places-btn .open-places-text {\n  display: none; }\n\n.open-places-btn.open .all-places-text {\n  display: none; }\n\n.open-places-btn.open .open-places-text {\n  display: inline; }\n\n.form {\n  width: 40vw;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  padding: 5%;\n  border-radius: 2px;\n  background: #ffffde; }\n  .form input {\n    border-color: transparent;\n    margin-left: 5px;\n    width: 60%; }\n    .form input :invalid {\n      border-color: #f88383; }\n  .form label {\n    display: block;\n    margin-bottom: 1em;\n    text-transform: uppercase;\n    text-align: right; }\n  .form-holder {\n    width: 100vw;\n    height: 100vh;\n    position: fixed;\n    top: 0;\n    left: 0;\n    background: rgba(0, 0, 0, 0.5);\n    display: none; }\n  .form__inputs {\n    padding: 4% 0; }\n  .form__controls {\n    text-align: center; }\n  .form__save-btn {\n    background: white;\n    border: none;\n    border-radius: 2px;\n    padding: 2% 30%; }\n\n.form-open .form-holder {\n  display: block; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -681,6 +681,7 @@ class Form {
     this.addPlaceBtn = document.getElementById('add-place-btn');
     this.savePlaceBtn = document.getElementById('save-place-btn');
     this.form = document.getElementById('form');
+    this.holder = document.querySelector('#form-holder');
 
     this.inputs = {
       title: form.querySelector('[name="place-title"]'),
@@ -731,6 +732,13 @@ class Form {
 
   bindEventHandlers() {
     this.addPlaceBtn.addEventListener('click', this.showModal.bind(this));
+    this.holder.addEventListener('click', (e) => {
+      if (e.target.closest('.form')) {
+        return;
+      }
+      this.clearForm();
+      this.closeForm();
+    }, true);
     this.form.addEventListener('submit', this.savePlace.bind(this));
   }
 
@@ -755,7 +763,7 @@ class Form {
     const ltd = form.querySelector('[name="place-ltd"]').value;
     const lgt = form.querySelector('[name="place-lgt"]').value;
 
-    const id = this.formId ? this.formId : `${ltd}${lgt}`;
+    const id = this.formId ? this.formId : `${ltd}${lgt}${new Date().getTime()}`;
     const label = title[0].toUpperCase();
 
     return {
@@ -963,19 +971,36 @@ class Places {
   }
 
   addId() {
-    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}`);
+    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}${new Date().getTime()}`);
   }
 
   renderPlace(place) {
     const template = `
-                    <li data-id="${place.id}">
-                      <span>Name: ${place.title}</span>
-                      <span>Description: ${place.description}</span>
-                      <span>From: ${place.openhours.start}</span>
-                      <span>To: ${place.openhours.end}</span>
-                      <button class="edit-place">Edit</button>
-                      <button class="remove-place">Remove</button>
-                    </li>
+                    <li data-id="${place.id}" class="place place-list__item">
+                      <span class="place__content">
+                        <span class="place__title">${place.title}</span>
+                        <span class="place__description">${place.description}</span>
+                        <span class="place__labels">
+                          <ul class="place__time">
+                            <li>From: ${place.openhours.start}</li>
+                            <li>To: ${place.openhours.end}</li>
+                          </ul>
+                          <ul class="place__coords">
+                            <li>${place.coordinates.ltd}</li>
+                            <li>${place.coordinates.lgt}</li>
+                          </ul>
+                          <ul class="place__keywords">
+                            <li>#place</li>
+                            <li>#map</li>
+                            <li>#google</li>
+                          </ul>
+                        </span>
+                      </span>
+                      <span class="place__controls">
+                        <button class="edit-place">Edit</button>
+                        <button class="remove-place">Remove</button>
+                      </span>
+                    </span>
                     `;
     this.container.insertAdjacentHTML("beforeend", template);
   }

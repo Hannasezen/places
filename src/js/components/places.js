@@ -15,19 +15,36 @@ export class Places {
   }
 
   addId() {
-    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}`);
+    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}${new Date().getTime()}`);
   }
 
   renderPlace(place) {
     const template = `
-                    <li data-id="${place.id}">
-                      <span>Name: ${place.title}</span>
-                      <span>Description: ${place.description}</span>
-                      <span>From: ${place.openhours.start}</span>
-                      <span>To: ${place.openhours.end}</span>
-                      <button class="edit-place">Edit</button>
-                      <button class="remove-place">Remove</button>
-                    </li>
+                    <li data-id="${place.id}" class="place place-list__item">
+                      <span class="place__content">
+                        <span class="place__title">${place.title}</span>
+                        <span class="place__description">${place.description}</span>
+                        <span class="place__labels">
+                          <ul class="place__time">
+                            <li>From: ${place.openhours.start}</li>
+                            <li>To: ${place.openhours.end}</li>
+                          </ul>
+                          <ul class="place__coords">
+                            <li>${place.coordinates.ltd}</li>
+                            <li>${place.coordinates.lgt}</li>
+                          </ul>
+                          <ul class="place__keywords">
+                            <li>#place</li>
+                            <li>#map</li>
+                            <li>#google</li>
+                          </ul>
+                        </span>
+                      </span>
+                      <span class="place__controls">
+                        <button class="edit-place">Edit</button>
+                        <button class="remove-place">Remove</button>
+                      </span>
+                    </span>
                     `;
     this.container.insertAdjacentHTML("beforeend", template);
   }

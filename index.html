@@ -9,65 +9,78 @@
 <body>
   <header></header>
   <main id="main" class="main-content">
-    <div class="map">
-      <img src="/src/images/loader.gif" alt="Google Map" id="map-image" width="600" height="300"> 
-    </div>
-    <div>
-      <button id="add-place-btn">Add Place</button>
-      <button id="filter-open-places" class="btn btn-filter open-places-btn">
-        <span class="all-places-text">Open places</span>
-        <span class="open-places-text">All places</span>
-      </button>
-      <ul id="place-list"></ul>
-      <form class="form hidden" id="form">
-        <label>Title: 
-          <input
-            type="text"
-            name="place-title"
-            placeholder="Type a title"
-          >
-        </label>
-        <label>Description: 
-          <input
-            type="text"
-            name="place-description"
-            placeholder="Type a description"
-          >
-        </label>
-        <label>Opens: 
-          <input
-            type="time"
-            name="place-start"
-            value="09:00"
-            required
-          >
-        </label>
-        <label>Closes: 
-          <input
-            type="time"
-            name="place-end"
-            value="18:00"
-            required
-          >
-        </label>
-        <label>Latitude: 
-          <input
-            type="text"
-            name="place-ltd"
-            placeholder="latitude"
-          >
-        </label>
-        <label>Longitude: 
-          <input
-            type="text"
-            name="place-lgt"
-            placeholder="longitude"
-          >
-        </label>
-        <button id="save-place-btn">Save</button>
-      </form>
+    <div class="global-wrapper">
+      <div class="container">
+        <div class="map">
+          <img src="/src/images/loader.gif" alt="Google Map" id="map-image" width="600" height="300"> 
+        </div>
+      </div>
+      <div class="content container">
+        <div class="main-controls container__item">
+          <button id="add-place-btn">Add Place</button>
+          <button id="filter-open-places" class="btn btn-filter open-places-btn">
+            <span class="all-places-text">Open places</span>
+            <span class="open-places-text">All places</span>
+          </button>
+        </div>
+        <ul id="place-list" class="place-list container__item"></ul>
+        <div class="form-holder container__item hidden" id="form-holder">
+          <form class="form" id="form">
+            <div class="form__inputs">
+              <label>Title: 
+                <input
+                  type="text"
+                  name="place-title"
+                  placeholder="Type a title"
+                >
+              </label>
+              <label>Description: 
+                <input
+                  type="text"
+                  name="place-description"
+                  placeholder="Type a description"
+                >
+              </label>
+              <label>Opens: 
+                <input
+                  type="time"
+                  name="place-start"
+                  value="09:00"
+                  required
+                >
+              </label>
+              <label>Closes: 
+                <input
+                  type="time"
+                  name="place-end"
+                  value="18:00"
+                  required
+                >
+              </label>
+              <label>Latitude: 
+                <input
+                  type="text"
+                  name="place-ltd"
+                  placeholder="latitude"
+                >
+              </label>
+              <label>Longitude: 
+                <input
+                  type="text"
+                  name="place-lgt"
+                  placeholder="longitude"
+                >
+              </label>
+            </div>
+            <div class="form__controls">
+              <button id="save-place-btn" class="form__save-btn">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </main>
+  <div class="black"></div>
   <footer></footer>
 
   <script async src="/build.js"></script>

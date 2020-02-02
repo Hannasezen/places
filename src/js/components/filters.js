@@ -1,9 +1,11 @@
 import { eventBus } from '../modules/eventbus';
+import { EVENTS } from '../constants/events';
 
 export class Filter {
   constructor(data) {
     this.places = data;
-    this.openPlacesFilterBtn = document.querySelector('#filter-open-places')
+    this.openPlacesBtn = document.querySelector('#filter-open-places');
+    this.isShowOpenPlaces = false;
   }
 
   init() {
@@ -11,16 +13,32 @@ export class Filter {
   }
 
   subscribeToEvents() {
-    eventBus.subscribe('');
-    this.openPlacesFilterBtn.addEventListener('click', this.showOpenPlaces.bind(this));
+    eventBus.subscribe(EVENTS.REFRESH_PLACES, this.showAllPlaces.bind(this));
+    this.openPlacesBtn.addEventListener('click', this.toggleOpenPlacesBtn.bind(this));
   }
 
-  showOpenPlaces() {
+  toggleOpenPlacesBtn(e) {
+    if (this.isShowOpenPlaces) {
+      eventBus.publish(EVENTS.SHOW_ALL_PLACES);
+    } else {
+      this.showFilteredPlaces();
+    }
+    this.isShowOpenPlaces = !this.isShowOpenPlaces;
+    e.target.closest('#filter-open-places').classList.toggle('open');
+  }
+
+  showFilteredPlaces() {
     const nowTime = new Date().getHours();
     const filteredList = this.places.filter(place => {
       return nowTime > place.openhours.start.match(/\d+(?=\:)/)[0]
           && nowTime < place.openhours.end.match(/\d+(?=\:)/)[0];
     });
-    eventBus.publish('show_filtered_places', filteredList);
+    eventBus.publish(EVENTS.SHOW_FILTERED_PLACES, filteredList);
+  }
+
+  showAllPlaces() {
+    this.isShowOpenPlaces = false;
+    this.openPlacesBtn.classList.remove('open');
+    eventBus.publish(EVENTS.SHOW_ALL_PLACES);
   }
 }

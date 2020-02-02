@@ -75,7 +75,6 @@ export class Form {
   }
 
   serializeForm(form) {
-
     const title = form.querySelector('[name="place-title"]').value;
     const description = form.querySelector('[name="place-description"]').value;
     const start = form.querySelector('[name="place-start"]').value;
@@ -109,18 +108,49 @@ export class Form {
     if(this.validateForm(this.form)) {
       const newPlace = Object.assign({}, this.place, serializedPlace);
       if(this.formId) {
-        const index = this.places.findIndex(place => place.id === this.formId);
-        const oldPlace = this.places[index];
-        this.places.splice(index, 1, Object.assign(oldPlace, newPlace));
-        console.log(this.places);
-        eventBus.publish('edit_place');
+        this.editExistingPlace(newPlace);
       } else {
-        this.places.push(Object.assign({}, this.defaultPlace, newPlace));
-        eventBus.publish(EVENTS.ADDED_NEW_PLACE, newPlace);
+        this.createNewPlace(newPlace);
       }
       this.clearForm();
       this.closeForm();
+      eventBus.publish(EVENTS.REFRESH_PLACES);
     }
+  }
+
+  createNewPlace(newPlace) {
+    this.places.push(Object.assign({}, this.defaultPlace, newPlace));
+    this.sendPost(newPlace);
+  }
+
+  editExistingPlace(newPlace) {
+    const index = this.places.findIndex(place => place.id === this.formId);
+    const oldPlace = this.places[index];
+    this.places.splice(index, 1, Object.assign(oldPlace, newPlace));
+    eventBus.publish(EVENTS.EDIT_PLACE);
+    this.sendPut(newPlace);  
+  }
+
+  sendPost(data) {
+    const xhr = new XMLHttpRequest();
+    const json = JSON.stringify(data);
+    xhr.open('POST', '/my-request');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      console.log(xhr.response);
+    };
+    xhr.send(json);
+  }
+
+  sendPut(data) {
+    const xhr = new XMLHttpRequest();
+    const json = JSON.stringify(data);
+    xhr.open('PUT', '/my-request');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      console.log(xhr.response);
+    };
+    xhr.send(json);
   }
 
   clearForm() {
@@ -137,7 +167,7 @@ export class Form {
   }
 
   subscribeToEvents() {
-    eventBus.subscribe('open_place_for_editing', this.showModal.bind(this));
+    eventBus.subscribe(EVENTS.OPEN_PLACE_FOR_EDITING, this.showModal.bind(this));
   }
 
   addFormId(id) {

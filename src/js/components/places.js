@@ -52,7 +52,7 @@ export class Places {
   editPlace(target) {
     const li = target.closest('li');
     const id = li.getAttribute('data-id');
-    eventBus.publish('open_place_for_editing', id);
+    eventBus.publish(EVENTS.OPEN_PLACE_FOR_EDITING, id);
     document.body.classList.add('form-open');
   }
 
@@ -64,7 +64,7 @@ export class Places {
       this.places.splice(index, 1);
       li.remove();
     }    
-    eventBus.publish('removed_place');
+    eventBus.publish(EVENTS.REMOVED_PLACE);
   }
 
   renderPlaceList(places = this.places) {
@@ -73,8 +73,8 @@ export class Places {
   }
 
   subscribeEvents() {
-    eventBus.subscribe(EVENTS.ADDED_NEW_PLACE, this.addPlace.bind(this));
-    eventBus.subscribe('edit_place', this.renderPlaceList.bind(this));
-    eventBus.subscribe('show_filtered_places', this.renderPlaceList.bind(this));
+    eventBus.subscribe(EVENTS.EDIT_PLACE, this.renderPlaceList.bind(this));
+    eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.renderPlaceList.bind(this));
+    eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.renderPlaceList.bind(this));
   }
 }

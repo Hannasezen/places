@@ -1,4 +1,4 @@
-import css from "./css/style.css";
+import css from "./styles/index.scss";
 import loader from './images/loader.gif';
 import places from './js/data/places.json';
 

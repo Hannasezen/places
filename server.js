@@ -15,7 +15,14 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/index.html'))
 });
 
-app.post('/', function (req, res) {
-  res.send('hi');
+app.post('/my-request', function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
 });
+
+app.put('/my-request', function (req, res) {
+  console.log(req.body);
+  res.send(req.body);
+});
+
 

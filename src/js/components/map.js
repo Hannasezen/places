@@ -37,10 +37,10 @@ export class Map {
   }
 
   subscribeEvents() {
-    eventBus.subscribe(EVENTS.ADDED_NEW_PLACE, this.refreshMap.bind(this));
-    eventBus.subscribe('removed_place', this.refreshMap.bind(this));
-    eventBus.subscribe('edit_place', this.refreshMap.bind(this));
-    eventBus.subscribe('show_filtered_places', this.refreshMap.bind(this));
+    eventBus.subscribe(EVENTS.REMOVED_PLACE, this.refreshMap.bind(this));
+    eventBus.subscribe(EVENTS.EDIT_PLACE, this.refreshMap.bind(this));
+    eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.refreshMap.bind(this));
+    eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.refreshMap.bind(this));
   }
 }
 

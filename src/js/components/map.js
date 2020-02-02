@@ -6,6 +6,11 @@ export class Map {
   constructor(data) {
     this.markers = data;
     this.image = document.querySelector("#map-image");
+    this.center = params.center;
+    this.url = URL;
+    this.apiKey = API_KEY;
+    this.maptype = params.maptype;
+    this.zoom = params.zoom;
   }
 
   init() {
@@ -21,11 +26,11 @@ export class Map {
   createUrl(markers) {
     markers = markers && markers.length ? markers : this.markers;
 
-    return `${URL}center=${params.center}&zoom=${params.zoom}&size=${
+    return `${this.url}center=${this.center}&zoom=${this.zoom}&size=${
       params.size
-    }&maptype=${params.maptype}&${markers.map(marker => {
+    }&format=png&maptype=${this.maptype}&${markers.map(marker => {
       return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
-    })}&key=${API_KEY}`.replace(/,markers/g, "&markers");
+    })}&key=${this.apiKey}`.replace(/,markers/g, "&markers");
   }
 
   showMap(src) {
@@ -36,11 +41,18 @@ export class Map {
     this.showMap(this.createUrl(data));
   }
 
+  setCoords(coords) {
+    this.center = `${coords.ltd},${coords.lgt}`;
+    this.refreshMap();
+    console.log(coords);
+  }
+
   subscribeEvents() {
     eventBus.subscribe(EVENTS.REMOVED_PLACE, this.refreshMap.bind(this));
     eventBus.subscribe(EVENTS.EDIT_PLACE, this.refreshMap.bind(this));
     eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.refreshMap.bind(this));
     eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.refreshMap.bind(this));
+    eventBus.subscribe(EVENTS.GETED_COORDS, this.setCoords.bind(this));
   }
 }
 

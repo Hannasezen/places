@@ -41,8 +41,8 @@ export class Places {
                         </span>
                       </span>
                       <span class="place__controls">
-                        <button class="edit-place">Edit</button>
-                        <button class="remove-place">Remove</button>
+                        <button class="btn btn-edit-place">Edit</button>
+                        <button class="btn btn-remove-place">Remove</button>
                       </span>
                     </span>
                     `;
@@ -55,9 +55,9 @@ export class Places {
 
   clickHandler(e) {
     const target = e.target;
-    if (target.classList.contains("edit-place")) {
+    if (target.classList.contains("btn-edit-place")) {
       this.editPlace(target);
-    } else if (target.classList.contains("remove-place")) {
+    } else if (target.classList.contains("btn-remove-place")) {
       this.removePlace(target);
     }
   }

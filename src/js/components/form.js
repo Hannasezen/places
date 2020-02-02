@@ -52,6 +52,7 @@ export class Form {
         ltd: res.coords.latitude,
         lgt: res.coords.longitude,
       };
+      eventBus.publish(EVENTS.GETED_COORDS, this.defaultPlace.coordinates);
     };
     const error = (error) => console.error(error.message);
     return window.navigator.geolocation.getCurrentPosition(success, error);
@@ -87,8 +88,8 @@ export class Form {
     const description = form.querySelector('[name="place-description"]').value;
     const start = form.querySelector('[name="place-start"]').value;
     const end = form.querySelector('[name="place-end"]').value;
-    const ltd = form.querySelector('[name="place-ltd"]').value;
-    const lgt = form.querySelector('[name="place-lgt"]').value;
+    const ltd = form.querySelector('[name="place-ltd"]').value.substring(0, 10);
+    const lgt = form.querySelector('[name="place-lgt"]').value.substring(0, 10);
 
     const id = this.formId ? this.formId : `${ltd}${lgt}${new Date().getTime()}`;
     const label = title[0].toUpperCase();

@@ -100,7 +100,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../images/map-holder
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\n.hidden {\n  display: none; }\n\n.global-wrapper {\n  width: 90vw;\n  margin: 0 auto; }\n\n.container {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 2% 0; }\n  .container__item {\n    margin-bottom: 4%; }\n\n.map {\n  max-width: 600px;\n  max-height: 300px;\n  margin: 0 auto;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") #d6ccee; }\n  .map img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover; }\n\n.main-controls {\n  text-align: center; }\n\n.place-list {\n  list-style: none;\n  padding: 0;\n  margin: 0 auto 4% auto; }\n  .place-list__item {\n    padding: 2% 5%;\n    background: #f1c2c2;\n    margin-bottom: 1em;\n    border-radius: 2px; }\n  .place-list ul {\n    list-style: none;\n    padding-left: 0; }\n    .place-list ul li {\n      display: inline-block; }\n\n.place {\n  display: flex; }\n  .place__content {\n    display: flex;\n    flex-wrap: wrap;\n    flex-grow: 1; }\n  .place__title {\n    width: 100%;\n    margin-bottom: 0.5em;\n    font-size: 1em; }\n  .place__description {\n    width: 40%;\n    margin-bottom: 0.5em;\n    font-size: 0.8em; }\n\n.open-places-btn .all-places-text {\n  display: inline; }\n\n.open-places-btn .open-places-text {\n  display: none; }\n\n.open-places-btn.open .all-places-text {\n  display: none; }\n\n.open-places-btn.open .open-places-text {\n  display: inline; }\n\n.form {\n  width: 40vw;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  padding: 5%;\n  border-radius: 2px;\n  background: #ffffde; }\n  .form input {\n    border-color: transparent;\n    margin-left: 5px;\n    width: 60%; }\n    .form input :invalid {\n      border-color: #f88383; }\n  .form label {\n    display: block;\n    margin-bottom: 1em;\n    text-transform: uppercase;\n    text-align: right; }\n  .form-holder {\n    width: 100vw;\n    height: 100vh;\n    position: fixed;\n    top: 0;\n    left: 0;\n    background: rgba(0, 0, 0, 0.5);\n    display: none; }\n  .form__inputs {\n    padding: 4% 0; }\n  .form__controls {\n    text-align: center; }\n  .form__save-btn {\n    background: white;\n    border: none;\n    border-radius: 2px;\n    padding: 2% 30%; }\n\n.form-open .form-holder {\n  display: block; }\n", ""]);
+exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\n.hidden {\n  display: none; }\n\n.global-wrapper {\n  width: 90vw;\n  margin: 0 auto; }\n\n.container {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 2% 0; }\n  .container__item {\n    margin-bottom: 4%; }\n\n.map {\n  max-width: 600px;\n  max-height: 300px;\n  margin: 0 auto;\n  overflow: hidden;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") #d6ccee; }\n  .map img {\n    max-width: 100%;\n    max-height: 100%;\n    object-fit: cover; }\n\n.main-controls {\n  text-align: center; }\n\n.btn {\n  background: #f3e4e4;\n  border: none;\n  padding: 0.5em 1em; }\n\n.place-list {\n  list-style: none;\n  padding: 0;\n  margin: 0 auto 4% auto; }\n  .place-list__item {\n    padding: 2% 5%;\n    background: #f1c2c2;\n    margin-bottom: 1em;\n    border-radius: 2px; }\n  .place-list ul {\n    list-style: none;\n    padding-left: 0; }\n    .place-list ul li {\n      display: inline-block; }\n\n.place {\n  display: flex; }\n  .place__content {\n    display: flex;\n    flex-wrap: wrap;\n    flex-grow: 1; }\n  .place__title {\n    width: 100%;\n    margin-bottom: 0.5em;\n    font-size: 1em; }\n  .place__description {\n    width: 40%;\n    margin-bottom: 0.5em;\n    font-size: 0.8em; }\n  .place__labels {\n    max-width: 60%;\n    overflow: hidden; }\n  .place__coords {\n    white-space: nowrap; }\n\n.open-places-btn .all-places-text {\n  display: inline; }\n\n.open-places-btn .open-places-text {\n  display: none; }\n\n.open-places-btn.open .all-places-text {\n  display: none; }\n\n.open-places-btn.open .open-places-text {\n  display: inline; }\n\n.form {\n  width: 40vw;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  padding: 5%;\n  border-radius: 2px;\n  background: #ffffde; }\n  .form input {\n    border-color: transparent;\n    margin-left: 5px;\n    width: 60%; }\n    .form input :invalid {\n      border-color: #f88383; }\n  .form label {\n    display: block;\n    margin-bottom: 1em;\n    text-transform: uppercase;\n    text-align: right; }\n  .form-holder {\n    width: 100vw;\n    height: 100vh;\n    position: fixed;\n    top: 0;\n    left: 0;\n    background: rgba(0, 0, 0, 0.5);\n    display: none; }\n  .form__inputs {\n    padding: 4% 0; }\n  .form__controls {\n    text-align: center; }\n  .form__save-btn {\n    background: white;\n    border: none;\n    border-radius: 2px;\n    padding: 2% 30%; }\n\n.form-open .form-holder {\n  display: block; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -725,6 +725,7 @@ class Form {
         ltd: res.coords.latitude,
         lgt: res.coords.longitude,
       };
+      _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].GETED_COORDS, this.defaultPlace.coordinates);
     };
     const error = (error) => console.error(error.message);
     return window.navigator.geolocation.getCurrentPosition(success, error);
@@ -760,8 +761,8 @@ class Form {
     const description = form.querySelector('[name="place-description"]').value;
     const start = form.querySelector('[name="place-start"]').value;
     const end = form.querySelector('[name="place-end"]').value;
-    const ltd = form.querySelector('[name="place-ltd"]').value;
-    const lgt = form.querySelector('[name="place-lgt"]').value;
+    const ltd = form.querySelector('[name="place-ltd"]').value.substring(0, 10);
+    const lgt = form.querySelector('[name="place-lgt"]').value.substring(0, 10);
 
     const id = this.formId ? this.formId : `${ltd}${lgt}${new Date().getTime()}`;
     const label = title[0].toUpperCase();
@@ -897,6 +898,11 @@ class Map {
   constructor(data) {
     this.markers = data;
     this.image = document.querySelector("#map-image");
+    this.center = _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].center;
+    this.url = _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["URL"];
+    this.apiKey = _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["API_KEY"];
+    this.maptype = _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].maptype;
+    this.zoom = _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].zoom;
   }
 
   init() {
@@ -912,11 +918,11 @@ class Map {
   createUrl(markers) {
     markers = markers && markers.length ? markers : this.markers;
 
-    return `${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["URL"]}center=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].center}&zoom=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].zoom}&size=${
+    return `${this.url}center=${this.center}&zoom=${this.zoom}&size=${
       _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].size
-    }&maptype=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].maptype}&${markers.map(marker => {
+    }&format=png&maptype=${this.maptype}&${markers.map(marker => {
       return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
-    })}&key=${_constants_api_config__WEBPACK_IMPORTED_MODULE_0__["API_KEY"]}`.replace(/,markers/g, "&markers");
+    })}&key=${this.apiKey}`.replace(/,markers/g, "&markers");
   }
 
   showMap(src) {
@@ -927,11 +933,18 @@ class Map {
     this.showMap(this.createUrl(data));
   }
 
+  setCoords(coords) {
+    this.center = `${coords.ltd},${coords.lgt}`;
+    this.refreshMap();
+    console.log(coords);
+  }
+
   subscribeEvents() {
     _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].REMOVED_PLACE, this.refreshMap.bind(this));
     _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].EDIT_PLACE, this.refreshMap.bind(this));
     _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].SHOW_FILTERED_PLACES, this.refreshMap.bind(this));
     _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].SHOW_ALL_PLACES, this.refreshMap.bind(this));
+    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].GETED_COORDS, this.setCoords.bind(this));
   }
 }
 
@@ -997,8 +1010,8 @@ class Places {
                         </span>
                       </span>
                       <span class="place__controls">
-                        <button class="edit-place">Edit</button>
-                        <button class="remove-place">Remove</button>
+                        <button class="btn btn-edit-place">Edit</button>
+                        <button class="btn btn-remove-place">Remove</button>
                       </span>
                     </span>
                     `;
@@ -1011,9 +1024,9 @@ class Places {
 
   clickHandler(e) {
     const target = e.target;
-    if (target.classList.contains("edit-place")) {
+    if (target.classList.contains("btn-edit-place")) {
       this.editPlace(target);
-    } else if (target.classList.contains("remove-place")) {
+    } else if (target.classList.contains("btn-remove-place")) {
       this.removePlace(target);
     }
   }
@@ -1070,8 +1083,8 @@ const API_KEY = "AIzaSyB-uwx38PKPh0z8CaYHcnvduxs9Mee2M4E";
 const URL = "https://maps.googleapis.com/maps/api/staticmap?";	
 const params = {	
   center: "Kharkiv,Ukraine",	
-  zoom: 11,	
-  size: "600x300",	
+  zoom: 12,	
+  size: "1800x900",	
   maptype: "roadmap"	
 };	
 
@@ -1106,7 +1119,7 @@ const EVENTS = {
 /*! exports provided: 0, 1, 2, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("[{\"title\":\"Home\",\"description\":\"Home\",\"color\":\"red\",\"label\":\"H\",\"coordinates\":{\"ltd\":\"50.005083\",\"lgt\":\"36.190229\"},\"openhours\":{\"start\":\"09:00\",\"end\":\"21:00\"},\"keywords\":[]},{\"title\":\"Work\",\"description\":\"Work\",\"color\":\"blue\",\"label\":\"W\",\"coordinates\":{\"ltd\":\"50.037139\",\"lgt\":\"36.218084\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"18:00\"},\"keywords\":[]},{\"title\":\"Jelya\",\"description\":\"Sister\",\"color\":\"green\",\"label\":\"J\",\"coordinates\":{\"ltd\":\"50.025086\",\"lgt\":\"36.217503\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"17:00\"},\"keywords\":[]}]");
+module.exports = JSON.parse("[{\"title\":\"Home\",\"description\":\"Home\",\"color\":\"red\",\"label\":\"H\",\"coordinates\":{\"ltd\":\"50.005083\",\"lgt\":\"36.190229\"},\"openhours\":{\"start\":\"09:00\",\"end\":\"21:00\"},\"keywords\":[]},{\"title\":\"Work\",\"description\":\"Work\",\"color\":\"blue\",\"label\":\"W\",\"coordinates\":{\"ltd\":\"50.037139\",\"lgt\":\"37.218084\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"18:00\"},\"keywords\":[]},{\"title\":\"Jelya\",\"description\":\"Sister\",\"color\":\"green\",\"label\":\"J\",\"coordinates\":{\"ltd\":\"50.025086\",\"lgt\":\"36.217503\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"17:00\"},\"keywords\":[]}]");
 
 /***/ }),
 

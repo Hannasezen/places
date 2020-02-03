@@ -100,7 +100,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../images/map-holder
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\n.hidden {\n  display: none; }\n\n.global-wrapper {\n  width: 90vw;\n  margin: 0 auto; }\n\n.container {\n  max-width: 600px;\n  margin: 0 auto;\n  padding: 2% 0; }\n  .container__item {\n    margin-bottom: 4%; }\n\n.map {\n  max-width: 600px;\n  max-height: 300px;\n  margin: 0 auto;\n  overflow: hidden;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") #d6ccee; }\n  .map img {\n    max-width: 100%;\n    max-height: 100%;\n    object-fit: cover; }\n\n.main-controls {\n  text-align: center; }\n\n.btn {\n  background: #f3e4e4;\n  border: none;\n  padding: 0.5em 1em; }\n\n.place-list {\n  list-style: none;\n  padding: 0;\n  margin: 0 auto 4% auto; }\n  .place-list__item {\n    padding: 2% 5%;\n    background: #f1c2c2;\n    margin-bottom: 1em;\n    border-radius: 2px; }\n  .place-list ul {\n    list-style: none;\n    padding-left: 0; }\n    .place-list ul li {\n      display: inline-block; }\n\n.place {\n  display: flex; }\n  .place__content {\n    display: flex;\n    flex-wrap: wrap;\n    flex-grow: 1; }\n  .place__title {\n    width: 100%;\n    margin-bottom: 0.5em;\n    font-size: 1em; }\n  .place__description {\n    width: 40%;\n    margin-bottom: 0.5em;\n    font-size: 0.8em; }\n  .place__labels {\n    max-width: 60%;\n    overflow: hidden; }\n  .place__coords {\n    white-space: nowrap; }\n\n.open-places-btn .all-places-text {\n  display: inline; }\n\n.open-places-btn .open-places-text {\n  display: none; }\n\n.open-places-btn.open .all-places-text {\n  display: none; }\n\n.open-places-btn.open .open-places-text {\n  display: inline; }\n\n.form {\n  width: 40vw;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  padding: 5%;\n  border-radius: 2px;\n  background: #ffffde; }\n  .form input {\n    border-color: transparent;\n    margin-left: 5px;\n    width: 60%; }\n    .form input :invalid {\n      border-color: #f88383; }\n  .form label {\n    display: block;\n    margin-bottom: 1em;\n    text-transform: uppercase;\n    text-align: right; }\n  .form-holder {\n    width: 100vw;\n    height: 100vh;\n    position: fixed;\n    top: 0;\n    left: 0;\n    background: rgba(0, 0, 0, 0.5);\n    display: none; }\n  .form__inputs {\n    padding: 4% 0; }\n  .form__controls {\n    text-align: center; }\n  .form__save-btn {\n    background: white;\n    border: none;\n    border-radius: 2px;\n    padding: 2% 30%; }\n\n.form-open .form-holder {\n  display: block; }\n", ""]);
+exports.push([module.i, "html, body {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box; }\n\n.hidden {\n  display: none; }\n\n.global-wrapper {\n  width: 90vw;\n  margin: 0 auto; }\n\n.container {\n  max-width: 800px;\n  margin: 0 auto;\n  padding: 2% 0; }\n  .container__item {\n    margin-bottom: 4%; }\n\n.map {\n  max-height: 40vh;\n  margin: 0 auto;\n  overflow: hidden;\n  background: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") #d6ccee; }\n  .map img {\n    display: block;\n    width: 100%;\n    max-height: 100%;\n    object-fit: cover; }\n\n.main-controls {\n  text-align: center; }\n\n.btn {\n  background: #f3e4e4;\n  border: none;\n  padding: 0.5em 1em;\n  cursor: pointer;\n  transition: ease 0.3s; }\n  .btn:hover {\n    background: #f38383; }\n\n.place-list {\n  list-style: none;\n  padding: 0;\n  margin: 0 auto 4% auto; }\n  .place-list__item {\n    padding: 2% 5%;\n    background: #f1c2c2;\n    margin-bottom: 1em;\n    border-radius: 2px; }\n  .place-list ul {\n    list-style: none;\n    padding-left: 0; }\n    .place-list ul li {\n      display: inline-block; }\n\n.place {\n  display: flex; }\n  .place__content {\n    display: flex;\n    flex-wrap: wrap;\n    flex-grow: 1; }\n  .place__title {\n    width: 100%;\n    margin-bottom: 0.5em;\n    font-size: 1em; }\n  .place__description {\n    width: 40%;\n    margin-bottom: 0.5em;\n    font-size: 0.8em; }\n  .place__labels {\n    max-width: 60%;\n    overflow: hidden; }\n  .place__coords {\n    white-space: nowrap; }\n  .place__controls {\n    display: flex;\n    flex-direction: column;\n    align-items: center; }\n    .place__controls .btn {\n      width: 100%;\n      margin-bottom: 0.5em; }\n\n.open-places-btn .all-places-text {\n  display: inline; }\n\n.open-places-btn .open-places-text {\n  display: none; }\n\n.open-places-btn.open .all-places-text {\n  display: none; }\n\n.open-places-btn.open .open-places-text {\n  display: inline; }\n\n.form {\n  width: 40vw;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  padding: 5%;\n  border-radius: 2px;\n  background: #ffffde; }\n  .form input {\n    border-color: transparent;\n    margin-left: 5px;\n    width: 60%; }\n    .form input :invalid {\n      border-color: #f88383; }\n  .form label {\n    display: block;\n    margin-bottom: 1em;\n    text-transform: uppercase;\n    text-align: right; }\n  .form-holder {\n    width: 100vw;\n    height: 100vh;\n    position: fixed;\n    top: 0;\n    left: 0;\n    background: rgba(0, 0, 0, 0.5);\n    display: none; }\n  .form__inputs {\n    padding: 4% 0; }\n  .form__controls {\n    text-align: center; }\n  .form__save-btn {\n    background: white;\n    border: none;\n    border-radius: 2px;\n    padding: 2% 30%; }\n\n.form-open .form-holder {\n  display: block; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -575,12 +575,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/index.scss */ "./src/styles/index.scss");
 /* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_index_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _images_loader_gif__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/loader.gif */ "./src/images/loader.gif");
-/* harmony import */ var _js_data_places_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/data/places.json */ "./src/js/data/places.json");
-var _js_data_places_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./js/data/places.json */ "./src/js/data/places.json", 1);
-/* harmony import */ var _js_components_map__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/map */ "./src/js/components/map.js");
-/* harmony import */ var _js_components_places__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/components/places */ "./src/js/components/places.js");
-/* harmony import */ var _js_components_form__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/components/form */ "./src/js/components/form.js");
-/* harmony import */ var _js_components_filters__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/components/filters */ "./src/js/components/filters.js");
+/* harmony import */ var _js_components_map__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/components/map */ "./src/js/components/map.js");
+/* harmony import */ var _js_components_places__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/components/places */ "./src/js/components/places.js");
+/* harmony import */ var _js_components_form__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/components/form */ "./src/js/components/form.js");
+/* harmony import */ var _js_components_filters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/components/filters */ "./src/js/components/filters.js");
 
 
 
@@ -589,12 +587,25 @@ var _js_data_places_json__WEBPACK_IMPORTED_MODULE_2___namespace = /*#__PURE__*/_
 
 
 
+function startApp(places) {
+  new _js_components_map__WEBPACK_IMPORTED_MODULE_2__["Map"](places).init();
+  new _js_components_places__WEBPACK_IMPORTED_MODULE_3__["Places"](places).init();
+  new _js_components_form__WEBPACK_IMPORTED_MODULE_4__["Form"](places).init();
+  new _js_components_filters__WEBPACK_IMPORTED_MODULE_5__["Filter"](places).init();
+}
 
+function getPosts() {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '/places');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function() {
+    const places = JSON.parse(xhr.response);
+    startApp(places);
+  };
+  xhr.send();
+}
 
-const map = new _js_components_map__WEBPACK_IMPORTED_MODULE_3__["Map"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_2__).init();
-const placeList = new _js_components_places__WEBPACK_IMPORTED_MODULE_4__["Places"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_2__).init();
-const form = new _js_components_form__WEBPACK_IMPORTED_MODULE_5__["Form"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_2__).init();
-const filter = new _js_components_filters__WEBPACK_IMPORTED_MODULE_6__["Filter"](_js_data_places_json__WEBPACK_IMPORTED_MODULE_2__).init();
+getPosts();
 
 
 /***/ }),
@@ -656,6 +667,7 @@ class Filter {
   }
 }
 
+
 /***/ }),
 
 /***/ "./src/js/components/form.js":
@@ -708,8 +720,6 @@ class Form {
         lgt: '',
       },
       keywords: [],
-      color: 'yellow',
-      label: 'C',
     }
   }
 
@@ -801,7 +811,7 @@ class Form {
   }
 
   createNewPlace(newPlace) {
-    this.places.push(Object.assign({}, this.defaultPlace, newPlace));
+    // this.places.push(Object.assign({}, this.defaultPlace, newPlace));
     this.sendPost(newPlace);
   }
 
@@ -810,16 +820,19 @@ class Form {
     const oldPlace = this.places[index];
     this.places.splice(index, 1, Object.assign(oldPlace, newPlace));
     _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].EDIT_PLACE);
-    this.sendPut(newPlace);  
+    this.sendPut(newPlace);
   }
 
   sendPost(data) {
+    const thisForm = this;
+
     const xhr = new XMLHttpRequest();
     const json = JSON.stringify(data);
-    xhr.open('POST', '/my-request');
+    xhr.open('POST', '/place');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
-      console.log(xhr.response);
+      const resPlaces = JSON.parse(xhr.response);
+      _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].REFRESH_PLACES, resPlaces);
     };
     xhr.send(json);
   }
@@ -827,7 +840,7 @@ class Form {
   sendPut(data) {
     const xhr = new XMLHttpRequest();
     const json = JSON.stringify(data);
-    xhr.open('PUT', '/my-request');
+    xhr.open('PUT', '/place');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
       console.log(xhr.response);
@@ -875,6 +888,7 @@ class Form {
   }
 }
 
+
 /***/ }),
 
 /***/ "./src/js/components/map.js":
@@ -906,14 +920,14 @@ class Map {
   }
 
   init() {
-    this.addId();
+    // this.addId();
     this.showMap(this.createUrl());
     this.subscribeEvents();
   }
 
-  addId() {
-    this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
-  }
+  // addId() {
+  //   this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
+  // }
 
   createUrl(markers) {
     markers = markers && markers.length ? markers : this.markers;
@@ -921,7 +935,7 @@ class Map {
     return `${this.url}center=${this.center}&zoom=${this.zoom}&size=${
       _constants_api_config__WEBPACK_IMPORTED_MODULE_0__["params"].size
     }&format=png&maptype=${this.maptype}&${markers.map(marker => {
-      return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
+      return `markers=color:${marker.marker.color}%7Clabel:${marker.marker.letter}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
     })}&key=${this.apiKey}`.replace(/,markers/g, "&markers");
   }
 
@@ -940,17 +954,14 @@ class Map {
   }
 
   subscribeEvents() {
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].REMOVED_PLACE, this.refreshMap.bind(this));
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].EDIT_PLACE, this.refreshMap.bind(this));
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].SHOW_FILTERED_PLACES, this.refreshMap.bind(this));
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].SHOW_ALL_PLACES, this.refreshMap.bind(this));
-    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].GETED_COORDS, this.setCoords.bind(this));
+    // eventBus.subscribe(EVENTS.REMOVED_PLACE, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.EDIT_PLACE, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.GETED_COORDS, this.setCoords.bind(this));
+    _modules_eventbus_js__WEBPACK_IMPORTED_MODULE_1__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_2__["EVENTS"].REFRESH_PLACES, this.refreshMap.bind(this));
   }
 }
-
-
-
-
 
 
 /***/ }),
@@ -977,15 +988,15 @@ class Places {
   }
 
   init() {
-    this.addId();
+    // this.addId();
     this.bindEvents();
     this.subscribeEvents();
     this.renderPlaceList();
   }
 
-  addId() {
-    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}${new Date().getTime()}`);
-  }
+  // addId() {
+  //   this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}${new Date().getTime()}`);
+  // }
 
   renderPlace(place) {
     const template = `
@@ -1045,12 +1056,15 @@ class Places {
   removePlace(target) {
     const li = target.closest('li');
     const id = li.getAttribute('data-id');
-    const index = this.places.findIndex(place => place.id === id);
-    if (index !== -1) {
-      this.places.splice(index, 1);
-      li.remove();
-    }    
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].REMOVED_PLACE);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('DELETE', `/place/${id}`);
+    xhr.onload = function() {
+      const resPlaces = JSON.parse(xhr.response);
+      _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].publish(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].REFRESH_PLACES, resPlaces);
+    };
+    xhr.send();
+    // eventBus.publish(EVENTS.REMOVED_PLACE);
   }
 
   renderPlaceList(places = this.places) {
@@ -1059,9 +1073,10 @@ class Places {
   }
 
   subscribeEvents() {
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].EDIT_PLACE, this.renderPlaceList.bind(this));
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].SHOW_FILTERED_PLACES, this.renderPlaceList.bind(this));
-    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].SHOW_ALL_PLACES, this.renderPlaceList.bind(this));
+    // eventBus.subscribe(EVENTS.EDIT_PLACE, this.renderPlaceList.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.renderPlaceList.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.renderPlaceList.bind(this));
+    _modules_eventbus__WEBPACK_IMPORTED_MODULE_0__["eventBus"].subscribe(_constants_events__WEBPACK_IMPORTED_MODULE_1__["EVENTS"].REFRESH_PLACES, this.renderPlaceList.bind(this));
   }
 }
 
@@ -1108,18 +1123,9 @@ const EVENTS = {
   REMOVED_PLACE: 'REMOVED_PLACE',
   SHOW_ALL_PLACES: 'SHOW_ALL_PLACES',
   REFRESH_PLACES: 'REFRESH_PLACES',
+  GETED_COORDS: 'GETED_COORDS',
+  REFRESH_PLACES: 'REFRESH_PLACES',
 }
-
-/***/ }),
-
-/***/ "./src/js/data/places.json":
-/*!*********************************!*\
-  !*** ./src/js/data/places.json ***!
-  \*********************************/
-/*! exports provided: 0, 1, 2, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("[{\"title\":\"Home\",\"description\":\"Home\",\"color\":\"red\",\"label\":\"H\",\"coordinates\":{\"ltd\":\"50.005083\",\"lgt\":\"36.190229\"},\"openhours\":{\"start\":\"09:00\",\"end\":\"21:00\"},\"keywords\":[]},{\"title\":\"Work\",\"description\":\"Work\",\"color\":\"blue\",\"label\":\"W\",\"coordinates\":{\"ltd\":\"50.037139\",\"lgt\":\"37.218084\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"18:00\"},\"keywords\":[]},{\"title\":\"Jelya\",\"description\":\"Sister\",\"color\":\"green\",\"label\":\"J\",\"coordinates\":{\"ltd\":\"50.025086\",\"lgt\":\"36.217503\"},\"openhours\":{\"start\":\"10:00\",\"end\":\"17:00\"},\"keywords\":[]}]");
 
 /***/ }),
 

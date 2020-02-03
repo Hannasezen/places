@@ -35,8 +35,6 @@ export class Form {
         lgt: '',
       },
       keywords: [],
-      color: 'yellow',
-      label: 'C',
     }
   }
 
@@ -128,7 +126,7 @@ export class Form {
   }
 
   createNewPlace(newPlace) {
-    this.places.push(Object.assign({}, this.defaultPlace, newPlace));
+    // this.places.push(Object.assign({}, this.defaultPlace, newPlace));
     this.sendPost(newPlace);
   }
 
@@ -137,16 +135,19 @@ export class Form {
     const oldPlace = this.places[index];
     this.places.splice(index, 1, Object.assign(oldPlace, newPlace));
     eventBus.publish(EVENTS.EDIT_PLACE);
-    this.sendPut(newPlace);  
+    this.sendPut(newPlace);
   }
 
   sendPost(data) {
+    const thisForm = this;
+
     const xhr = new XMLHttpRequest();
     const json = JSON.stringify(data);
-    xhr.open('POST', '/my-request');
+    xhr.open('POST', '/place');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
-      console.log(xhr.response);
+      const resPlaces = JSON.parse(xhr.response);
+      eventBus.publish(EVENTS.REFRESH_PLACES, resPlaces);
     };
     xhr.send(json);
   }
@@ -154,7 +155,7 @@ export class Form {
   sendPut(data) {
     const xhr = new XMLHttpRequest();
     const json = JSON.stringify(data);
-    xhr.open('PUT', '/my-request');
+    xhr.open('PUT', '/place');
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
       console.log(xhr.response);

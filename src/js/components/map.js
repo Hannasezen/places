@@ -14,14 +14,14 @@ export class Map {
   }
 
   init() {
-    this.addId();
+    // this.addId();
     this.showMap(this.createUrl());
     this.subscribeEvents();
   }
 
-  addId() {
-    this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
-  }
+  // addId() {
+  //   this.markers.forEach(marker => marker.id = `${marker.coordinates.ltd}${marker.coordinates.lgt}`);
+  // }
 
   createUrl(markers) {
     markers = markers && markers.length ? markers : this.markers;
@@ -29,7 +29,7 @@ export class Map {
     return `${this.url}center=${this.center}&zoom=${this.zoom}&size=${
       params.size
     }&format=png&maptype=${this.maptype}&${markers.map(marker => {
-      return `markers=color:${marker.color}%7Clabel:${marker.label}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
+      return `markers=color:${marker.marker.color}%7Clabel:${marker.marker.letter}%7C${marker.coordinates.ltd},${marker.coordinates.lgt}`;
     })}&key=${this.apiKey}`.replace(/,markers/g, "&markers");
   }
 
@@ -48,14 +48,11 @@ export class Map {
   }
 
   subscribeEvents() {
-    eventBus.subscribe(EVENTS.REMOVED_PLACE, this.refreshMap.bind(this));
-    eventBus.subscribe(EVENTS.EDIT_PLACE, this.refreshMap.bind(this));
-    eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.refreshMap.bind(this));
-    eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.refreshMap.bind(this));
-    eventBus.subscribe(EVENTS.GETED_COORDS, this.setCoords.bind(this));
+    // eventBus.subscribe(EVENTS.REMOVED_PLACE, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.EDIT_PLACE, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.refreshMap.bind(this));
+    // eventBus.subscribe(EVENTS.GETED_COORDS, this.setCoords.bind(this));
+    eventBus.subscribe(EVENTS.REFRESH_PLACES, this.refreshMap.bind(this));
   }
 }
-
-
-
-

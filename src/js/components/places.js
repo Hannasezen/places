@@ -8,15 +8,15 @@ export class Places {
   }
 
   init() {
-    this.addId();
+    // this.addId();
     this.bindEvents();
     this.subscribeEvents();
     this.renderPlaceList();
   }
 
-  addId() {
-    this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}${new Date().getTime()}`);
-  }
+  // addId() {
+  //   this.places.forEach(place => place.id = `${place.coordinates.ltd}${place.coordinates.lgt}${new Date().getTime()}`);
+  // }
 
   renderPlace(place) {
     const template = `
@@ -76,12 +76,15 @@ export class Places {
   removePlace(target) {
     const li = target.closest('li');
     const id = li.getAttribute('data-id');
-    const index = this.places.findIndex(place => place.id === id);
-    if (index !== -1) {
-      this.places.splice(index, 1);
-      li.remove();
-    }    
-    eventBus.publish(EVENTS.REMOVED_PLACE);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('DELETE', `/place/${id}`);
+    xhr.onload = function() {
+      const resPlaces = JSON.parse(xhr.response);
+      eventBus.publish(EVENTS.REFRESH_PLACES, resPlaces);
+    };
+    xhr.send();
+    // eventBus.publish(EVENTS.REMOVED_PLACE);
   }
 
   renderPlaceList(places = this.places) {
@@ -90,8 +93,9 @@ export class Places {
   }
 
   subscribeEvents() {
-    eventBus.subscribe(EVENTS.EDIT_PLACE, this.renderPlaceList.bind(this));
-    eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.renderPlaceList.bind(this));
-    eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.renderPlaceList.bind(this));
+    // eventBus.subscribe(EVENTS.EDIT_PLACE, this.renderPlaceList.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_FILTERED_PLACES, this.renderPlaceList.bind(this));
+    // eventBus.subscribe(EVENTS.SHOW_ALL_PLACES, this.renderPlaceList.bind(this));
+    eventBus.subscribe(EVENTS.REFRESH_PLACES, this.renderPlaceList.bind(this));
   }
 }

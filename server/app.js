@@ -4,19 +4,15 @@ const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const fileName = './data/places.json';
-const places = JSON.parse(fs.readFileSync(fileName));
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+// const fileName = './data/places.json';
+// const places = JSON.parse(fs.readFileSync(fileName));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(path.join(__dirname, '../sources/dist')));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'))
+  res.sendFile(path.join(__dirname, '../sources/index.html'))
 });
 
 app.get('/places', function (req, res) {
@@ -28,6 +24,7 @@ app.post('/place', function (req, res) {
   places.push(place);
   res.send(JSON.stringify(places));
 });
+
 
 app.put('/place', function (req, res) {
   console.log(req.body);
@@ -74,3 +71,7 @@ function createPlace(data) {
   }
   return Object.assign({}, defaultPlace, data);
 }
+
+app.listen(3000, function() {
+	console.log('Example app listening on port 3000!');
+});
